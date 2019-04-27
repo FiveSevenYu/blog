@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="前端,Javascript,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="(搬运于segmentfault 作者：zach5078)这些是最常用的几个语法let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments  let, constlet为javaScript新增了块级作用域。用它声明的变量，只在let命令所在的">
+<meta name="keywords" content="前端,Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6的常用新特性">
+<meta property="og:url" content="http://yoursite.com/2017/09/13/ES6的常用新特性/index.html">
+<meta property="og:site_name" content="FiveSeveN">
+<meta property="og:description" content="(搬运于segmentfault 作者：zach5078)这些是最常用的几个语法let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments  let, constlet为javaScript新增了块级作用域。用它声明的变量，只在let命令所在的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-27T13:38:06.436Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6的常用新特性">
+<meta name="twitter:description" content="(搬运于segmentfault 作者：zach5078)这些是最常用的几个语法let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments  let, constlet为javaScript新增了块级作用域。用它声明的变量，只在let命令所在的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/13/ES6的常用新特性/">
+
+
+
+
+
+  <title>ES6的常用新特性 | FiveSeveN</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">FiveSeveN</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">FiveSeveN - 脚踏实地，仰望星空</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/13/ES6的常用新特性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FiveSeveNyU">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FiveSeveN">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ES6的常用新特性</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T22:21:18+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>(搬运于<a href="https://segmentfault.com/a/1190000004365693" target="_blank" rel="noopener">segmentfault</a> 作者：<a href="https://segmentfault.com/u/zach5078" target="_blank" rel="noopener">zach5078</a>)<br>这些是最常用的几个语法<code>let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments</code></p>
+<hr>
+<h3 id="let-const"><a href="#let-const" class="headerlink" title="let, const"></a>let, const</h3><p><code>let</code>为javaScript新增了块级作用域。用它声明的变量，只在<code>let</code>命令所在的代码块内有效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let name = &apos;zach&apos;</span><br><span class="line"></span><br><span class="line">while (true) &#123;</span><br><span class="line">    let name = &apos;obama&apos;</span><br><span class="line">    console.log(name)  //obama</span><br><span class="line">    break</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(name)  //zach</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><code>const</code>用来声明常量。一旦声明，常量的值就不能改变。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const PI = Math.PI</span><br><span class="line"></span><br><span class="line">PI = 23 //Module build failed: SyntaxError: /es6/app.js: &quot;PI&quot; is read-only</span><br></pre></td></tr></table></figure></p>
+<p>当我们尝试去改变用const声明的常量时，浏览器就会报错。<br>const有一个很好的应用场景，就是当我们引用第三方库的时声明的变量，用const来声明可以避免未来不小心重命名而导致出现bug：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const monent = require(&apos;moment&apos;)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="class-extends-super"><a href="#class-extends-super" class="headerlink" title="class,extends,super"></a>class,extends,super</h3><p>ES6引入了<code>Class（类）</code>这个概念。新的class写法让对象原型的写法更加清晰、更像面向对象编程的语法，也更加通俗易懂。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        this.type = &apos;animal&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    says(say)&#123;</span><br><span class="line">        console.log(this.type + &apos; says &apos; + say)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let animal = new Animal()</span><br><span class="line">animal.says(&apos;hello&apos;) //animal says hello</span><br><span class="line"></span><br><span class="line">class Cat extends Animal &#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        super()</span><br><span class="line">        this.type = &apos;cat&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let cat = new Cat()</span><br><span class="line">cat.says(&apos;hello&apos;) //cat says hello</span><br></pre></td></tr></table></figure></p>
+<p>上面代码首先用class定义了一个“类”，可以看到里面有一个constructor方法，这就是构造方法，而this关键字则代表实例对象。简单地说，constructor内定义的方法和属性是实例对象自己的，而constructor外定义的方法和属性则是所有实例对象可以共享的。</p>
+<p><strong>Class之间可以通过<code>extends</code>关键字实现继承。</strong><br>上面定义了一个Cat类，该类通过extends关键字，继承了Animal类的所有属性和方法。</p>
+<hr>
+<p><code>super</code>关键字，它指代父类的实例（即父类的this对象）。<br>子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工。如果不调用super方法，子类就得不到this对象。</p>
+<p>ES6的继承机制，实质是先创造父类的实例对象this（所以必须先调用super方法），然后再用子类的构造函数修改this。</p>
+<hr>
+<h3 id="arrow-function"><a href="#arrow-function" class="headerlink" title="arrow function"></a>arrow function</h3><p><strong><code>arrow箭头函数</code></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function(i)&#123; return i + 1; &#125; //ES5</span><br><span class="line">(i) =&gt; i + 1 //ES6</span><br></pre></td></tr></table></figure></p>
+<p>如果方程比较复杂，则需要用<code>{}</code>把代码包起来：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//ES5</span><br><span class="line">function(x, y) &#123; </span><br><span class="line">    x++;</span><br><span class="line">    y--;</span><br><span class="line">    return x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//ES6</span><br><span class="line">(x, y) =&gt; &#123;x++; y--; return x+y&#125;</span><br></pre></td></tr></table></figure></p>
+<p>除了看上去更简洁以外，arrow function还有一项超级无敌的功能！<br>长期以来，JavaScript语言的this对象一直是一个令人头痛的问题，在对象方法中使用this，必须非常小心。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        this.type = &apos;animal&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    says(say)&#123;</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            console.log(this.type + &apos; says &apos; + say)</span><br><span class="line">        &#125;, 1000)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> var animal = new Animal()</span><br><span class="line"> animal.says(&apos;hi&apos;)  //undefined says hi</span><br></pre></td></tr></table></figure>
+<p> 运行上面的代码会报错，这是因为setTimeout中的this指向的是全局对象。所以为了让它能够正确的运行，传统的解决方法有两种：</p>
+<p>1.第一种是将this传给self,再用self来指代this<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">says(say)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(self.type + &apos; says &apos; + say)</span><br><span class="line">    &#125;, 1000)</span><br></pre></td></tr></table></figure></p>
+<p>2.第二种方法是用bind(this),即<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">says(say)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(this.type + &apos; says &apos; + say)</span><br><span class="line">    &#125;.bind(this), 1000)</span><br></pre></td></tr></table></figure></p>
+<p>但现在我们有了箭头函数，就不需要这么麻烦了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        this.type = &apos;animal&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    says(say)&#123;</span><br><span class="line">        setTimeout( () =&gt; &#123;</span><br><span class="line">            console.log(this.type + &apos; says &apos; + say)</span><br><span class="line">        &#125;, 1000)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> var animal = new Animal()</span><br><span class="line"> animal.says(&apos;hi&apos;)  //animal says hi</span><br></pre></td></tr></table></figure></p>
+<p>当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。<br>并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，它的this是继承外面的，因此内部的this就是外层代码块的this。</p>
+<hr>
+<h3 id="template-string"><a href="#template-string" class="headerlink" title="template string"></a>template string</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#result&quot;).append(</span><br><span class="line">  &quot;There are &lt;b&gt;&quot; + basket.count + &quot;&lt;/b&gt; &quot; +</span><br><span class="line">  &quot;items in your basket, &quot; +</span><br><span class="line">  &quot;&lt;em&gt;&quot; + basket.onSale +</span><br><span class="line">  &quot;&lt;/em&gt; are on sale!&quot;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>我们要用一堆的’+’号来连接文本与变量，而使用ES6的新特性模板字符串<code></code>后，我们可以直接这么来写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#result&quot;).append(`</span><br><span class="line">  There are &lt;b&gt;$&#123;basket.count&#125;&lt;/b&gt; items</span><br><span class="line">   in your basket, &lt;em&gt;$&#123;basket.onSale&#125;&lt;/em&gt;</span><br><span class="line">  are on sale!</span><br><span class="line">`);</span><br></pre></td></tr></table></figure></p>
+<p><strong>用反引号（`)来标识起始，用${}`来引用变量</strong>，而且所有的空格和缩进都会被保留在输出之中，是不是非常爽？！</p>
+<h3 id="Destructuring解构"><a href="#Destructuring解构" class="headerlink" title="Destructuring解构"></a>Destructuring解构</h3><p><strong>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（<code>Destructuring</code>）。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//ES5</span><br><span class="line">let cat = &apos;ken&apos;</span><br><span class="line">let dog = &apos;lili&apos;</span><br><span class="line">let zoo = &#123;cat: cat, dog: dog&#125;</span><br><span class="line">console.log(zoo)  //Object &#123;cat: &quot;ken&quot;, dog: &quot;lili&quot;&#125;</span><br><span class="line"></span><br><span class="line">//ES6</span><br><span class="line">let cat = &apos;ken&apos;</span><br><span class="line">let dog = &apos;lili&apos;</span><br><span class="line">let zoo = &#123;cat, dog&#125;</span><br><span class="line">console.log(zoo)  //Object &#123;cat: &quot;ken&quot;, dog: &quot;lili&quot;&#125;</span><br><span class="line"></span><br><span class="line">//反过来可以这么写：</span><br><span class="line">let dog = &#123;type: &apos;animal&apos;, many: 2&#125;</span><br><span class="line">let &#123; type, many&#125; = dog</span><br><span class="line">console.log(type, many)   //animal 2</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="Default-rest"><a href="#Default-rest" class="headerlink" title="Default,rest"></a>Default,rest</h3><p><strong><code>default</code>很简单，意思就是默认值。</strong><br>大家可以看下面的例子，调用animal()方法时忘了传参数，传统的做法就是加上这一句type = type || ‘cat’ 来指定默认值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function animal(type)&#123;</span><br><span class="line">    type = type || &apos;cat&apos;  </span><br><span class="line">    console.log(type)</span><br><span class="line">&#125;</span><br><span class="line">animal()</span><br></pre></td></tr></table></figure></p>
+<p>ES6可以这么写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function animal(type = &apos;cat&apos;)&#123;</span><br><span class="line">    console.log(type)</span><br><span class="line">&#125;</span><br><span class="line">animal()</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong><code>rest参数</code></strong></p>
+<ul>
+<li>est参数（形式为“…变量名”） *</li>
+<li>用于获取函数多余参数，将多余参数放入数组中。 *<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function animals(...types)&#123;</span><br><span class="line">    console.log(types)</span><br><span class="line">&#125;</span><br><span class="line">animals(&apos;cat&apos;, &apos;dog&apos;, &apos;fish&apos;) //[&quot;cat&quot;, &quot;dog&quot;, &quot;fish&quot;]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="import-export"><a href="#import-export" class="headerlink" title="import  export"></a>import  export</h3><p><strong>ES6的module功能</strong><br>假设我们有两个js文件: index.js和content.js,现在我们想要在index.js中使用content.js返回的结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//index.js</span><br><span class="line">import animal from &apos;./content&apos;</span><br><span class="line"></span><br><span class="line">//content.js</span><br><span class="line">export default &apos;A cat&apos;</span><br></pre></td></tr></table></figure></p>
+<p><code>export</code>命令除了输出变量，还可以输出函数，甚至是类（react的模块基本都是输出类）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//index.js</span><br><span class="line"></span><br><span class="line">import &#123; say, type &#125; from &apos;./content&apos;  </span><br><span class="line">let says = say()</span><br><span class="line">console.log(`The $&#123;type&#125; says $&#123;says&#125;`)  //The dog says Hello</span><br><span class="line"></span><br><span class="line">//index.js</span><br><span class="line"></span><br><span class="line">import &#123; say, type &#125; from &apos;./content&apos;  </span><br><span class="line">let says = say()</span><br><span class="line">console.log(`The $&#123;type&#125; says $&#123;says&#125;`)  //The dog says Hello</span><br></pre></td></tr></table></figure></p>
+<p>这里输入的时候要注意：大括号里面的变量名，必须与被导入模块（content.js）对外接口的名称相同。</p>
+<hr>
+<h4 id="修改变量名"><a href="#修改变量名" class="headerlink" title="修改变量名"></a>修改变量名</h4><p>此时我们不喜欢type这个变量名，因为它有可能重名，所以我们需要修改一下它的变量名。在es6中可以用as实现一键换名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//index.js</span><br><span class="line"></span><br><span class="line">import animal, &#123; say, type as animalType &#125; from &apos;./content&apos;  </span><br><span class="line">let says = say()</span><br><span class="line">console.log(`The $&#123;animalType&#125; says $&#123;says&#125; to $&#123;animal&#125;`)  </span><br><span class="line">//The dog says Hello to A cat</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="模块的整体加载"><a href="#模块的整体加载" class="headerlink" title="模块的整体加载"></a>模块的整体加载</h4><p>除了指定加载某个输出值，还可以使用整体加载，即用星号（*）指定一个对象，所有输出值都加载在这个对象上面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//index.js</span><br><span class="line"></span><br><span class="line">import animal, * as content from &apos;./content&apos;  </span><br><span class="line">let says = content.say()</span><br><span class="line">console.log(`The $&#123;content.type&#125; says $&#123;says&#125; to $&#123;animal&#125;`)  </span><br><span class="line">//The dog says Hello to A cat</span><br></pre></td></tr></table></figure></p>
+<p>通常星号*结合as一起使用比较合适。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/03/markdown常用语法/" rel="next" title="markdown常用语法">
+                <i class="fa fa-chevron-left"></i> markdown常用语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/04/React学习笔记/" rel="prev" title="React学习笔记">
+                React学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="FiveSeveNyU">
+          <p class="site-author-name" itemprop="name">FiveSeveNyU</p>
+           
+              <p class="site-description motion-element" itemprop="description">脚踏实地，仰望星空</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/FiveSevenYu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/FiveSevenYu" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/FiveSevenYu" target="_blank" title="DouBan">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      DouBan
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/yu-ru-yi-30/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="night" target="_blank" title="highlight_theme">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      highlight_theme
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#let-const"><span class="nav-number">1.</span> <span class="nav-text">let, const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-extends-super"><span class="nav-number">2.</span> <span class="nav-text">class,extends,super</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#arrow-function"><span class="nav-number">3.</span> <span class="nav-text">arrow function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#template-string"><span class="nav-number">4.</span> <span class="nav-text">template string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Destructuring解构"><span class="nav-number">5.</span> <span class="nav-text">Destructuring解构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Default-rest"><span class="nav-number">6.</span> <span class="nav-text">Default,rest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#import-export"><span class="nav-number">7.</span> <span class="nav-text">import  export</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#修改变量名"><span class="nav-number">7.1.</span> <span class="nav-text">修改变量名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块的整体加载"><span class="nav-number">7.2.</span> <span class="nav-text">模块的整体加载</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FiveSeveNyU</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

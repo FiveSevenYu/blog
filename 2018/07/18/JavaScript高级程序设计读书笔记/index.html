@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="前端,读书笔记,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="第一章 JavaScript简介JavaScript由 ECMAScript、DOM、BOM三部分组成。  ECMAScript，由ECMA0262定义，提供核心语言功能。  文档对象模型（DOM，Document Object Model）是针对XML但经过扩展用于HTML的应用编程接口（API，Application Programming Interface）。  浏览器对象模型（BOM，B">
+<meta name="keywords" content="前端,读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript高级程序设计读书笔记">
+<meta property="og:url" content="http://yoursite.com/2018/07/18/JavaScript高级程序设计读书笔记/index.html">
+<meta property="og:site_name" content="FiveSeveN">
+<meta property="og:description" content="第一章 JavaScript简介JavaScript由 ECMAScript、DOM、BOM三部分组成。  ECMAScript，由ECMA0262定义，提供核心语言功能。  文档对象模型（DOM，Document Object Model）是针对XML但经过扩展用于HTML的应用编程接口（API，Application Programming Interface）。  浏览器对象模型（BOM，B">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-27T13:38:06.436Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript高级程序设计读书笔记">
+<meta name="twitter:description" content="第一章 JavaScript简介JavaScript由 ECMAScript、DOM、BOM三部分组成。  ECMAScript，由ECMA0262定义，提供核心语言功能。  文档对象模型（DOM，Document Object Model）是针对XML但经过扩展用于HTML的应用编程接口（API，Application Programming Interface）。  浏览器对象模型（BOM，B">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/18/JavaScript高级程序设计读书笔记/">
+
+
+
+
+
+  <title>JavaScript高级程序设计读书笔记 | FiveSeveN</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">FiveSeveN</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">FiveSeveN - 脚踏实地，仰望星空</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/JavaScript高级程序设计读书笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FiveSeveNyU">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FiveSeveN">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript高级程序设计读书笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T21:05:01+08:00">
+                2018-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第一章-JavaScript简介"><a href="#第一章-JavaScript简介" class="headerlink" title="第一章 JavaScript简介"></a>第一章 JavaScript简介</h2><h4 id="JavaScript由-ECMAScript、DOM、BOM三部分组成。"><a href="#JavaScript由-ECMAScript、DOM、BOM三部分组成。" class="headerlink" title="JavaScript由 ECMAScript、DOM、BOM三部分组成。"></a>JavaScript由 ECMAScript、DOM、BOM三部分组成。</h4><p>  ECMAScript，由ECMA0262定义，提供核心语言功能。<br>  文档对象模型（DOM，Document Object Model）是针对XML但经过扩展用于HTML的应用编程接口（API，Application Programming Interface）。<br>  浏览器对象模型（BOM，Browser Object Model）提供与浏览器交互的方法和接口。</p>
+<h2 id="第二章-在HTML中使用JavaScript"><a href="#第二章-在HTML中使用JavaScript" class="headerlink" title="第二章 在HTML中使用JavaScript"></a>第二章 在HTML中使用JavaScript</h2><h3 id="lt-script-gt-元素"><a href="#lt-script-gt-元素" class="headerlink" title="&lt; script &gt;元素"></a>&lt; script &gt;元素</h3><h4 id="使用-lt-script-gt-元素的方式"><a href="#使用-lt-script-gt-元素的方式" class="headerlink" title="使用&lt; script &gt;元素的方式"></a>使用&lt; script &gt;元素的方式</h4><p>  ①在页面中嵌入JavaScript代码<br>    <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">text/javascript</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  function sayHi()&#123;</span></span><br><span class="line"><span class="undefined">    alert("Hi");</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>  ②包含外部JavaScript文件。<br>    <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>  <span class="attr">src</span>=<span class="string">"example.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>  _ 注意：带有src属性的script元素如果包含了嵌入的代码，则只会下载并执行外部脚本文件，嵌入的代码会被忽略。 _ </p>
+<h4 id="标签的位置"><a href="#标签的位置" class="headerlink" title="标签的位置"></a>标签的位置</h4><p>  传统做法中会将&lt; script &gt;元素全部放在页面的&lt; head &gt;元素中<br>  但是这意味着全部的JavaScript代码被下载解析执行完毕后才能开始呈现页面内容。将会导致页面在加载页面之前会有些许延迟，为了避免这个问题，<strong> 一般将JavaScript代码放置在&lt; body &gt;元素中页面内容的后面。</strong></p>
+<h4 id="嵌入代码与外部文件"><a href="#嵌入代码与外部文件" class="headerlink" title="嵌入代码与外部文件"></a>嵌入代码与外部文件</h4><p>  一般认为最好的做法还是尽可能的是用外部文件来包含JavaScript代码。<br>  其有可维护，可缓存等优点</p>
+<h2 id="第三章-基本概念"><a href="#第三章-基本概念" class="headerlink" title="第三章 基本概念"></a>第三章 基本概念</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><h4 id="区分大小写"><a href="#区分大小写" class="headerlink" title="区分大小写"></a>区分大小写</h4><p>  ECMAScript中的一切（变量、函数名和操作符）都区分大小写。</p>
+<h4 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h4><p>  <strong> 就是指变量、函数、属性的名字、或者函数的参数。</strong><br>  标识符可以是按照以下规则组合起来的一个或多个字符：</p>
+<ul>
+<li>第一个字符必须是一个字母、下划线(_)或者一个美元符号($)；</li>
+<li>其他字符可以是字母、下划线、美元符号或数字。<br>ECMAScript标识符采用<strong>驼峰大小写</strong>格式，也就是第一个字母小写，剩下的每个单词的首字母大写。例如：<br>doSomethingImportant</li>
+</ul>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p>  单行注释<br>    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单行注释</span></span><br></pre></td></tr></table></figure></p>
+<p>  块级注释<br>    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*   这是一个多行</span></span><br><span class="line"><span class="comment">*   （块级）注释</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h4><p>  ECMAScript 5引入了严格模式（strict mode）的概念。<br>  启用严格模式，需在代码顶部添加如下代码：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span></span><br></pre></td></tr></table></figure></p>
+<p>  在函数内部的上方包含这条编译知识，也可以指定函数在严格模式下执行：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>;</span><br><span class="line">  <span class="comment">//函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h4><p>  ECMAScript中的语句以一个分好结尾；如果省略分好，则界学习期确定语句的结尾。<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = a + b     <span class="comment">//即使没有分号也是有效的语句---不推荐</span></span><br><span class="line"><span class="keyword">var</span> sum = a + b;    <span class="comment">//有效的语句---推荐</span></span><br></pre></td></tr></table></figure></p>
+<p>  在控制语句中使用代码块<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(test)</span><br><span class="line">  alert(test);    <span class="comment">//有效但容易出错，不要使用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(test)&#123;</span><br><span class="line">  alert(test);    <span class="comment">//推荐使用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="关键字和保留字"><a href="#关键字和保留字" class="headerlink" title="关键字和保留字"></a>关键字和保留字</h4><p>  关键字：<br>   break  do  instanceof  typeof<br>   case else new var<br>   catch finally return void<br>   continue for switch while<br>   debuger function this with<br>   default if throw<br>   delete in try<br>  保留字：<br>  class enum extends super<br>  const export inport</p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>  ECMAScript变量是松散型（可以用来保存任何类型的数据）的。<br>  定义变量时要使用var操作符，后跟变量名：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message</span><br></pre></td></tr></table></figure></p>
+<p>  也可以直接初始化<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"hi"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>  <em>使用var操作符定义的变量将成为定义该变量的作用域中的局部变量</em><br>  同时定义多个变量：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"hi"</span>,</span><br><span class="line">      found = <span class="literal">false</span>,</span><br><span class="line">      age = <span class="number">29</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>  ECMAScript中有 <strong> Undefined、Null、Boolean、Number、String </strong> 五种<strong>基本数据类型</strong>，还有一种复杂数据类型–Object,<strong> Object本质上是由一组无需的名值对组成的 </strong></p>
+<p>  <strong> typeof操作符 </strong></p>
+<p>  用来检测变量的数据类型<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"some string"</span>;</span><br><span class="line">alert(<span class="keyword">typeof</span> message);      <span class="comment">//"string"</span></span><br><span class="line">alert(<span class="keyword">typeof</span> <span class="number">90</span>);           <span class="comment">//"number"</span></span><br></pre></td></tr></table></figure></p>
+<p>  <em>注意：调用typeof null会返回“object”，因为特殊值null被认为是一个空的对象引用。</em></p>
+<h4 id="Undefined类型"><a href="#Undefined类型" class="headerlink" title="Undefined类型"></a>Undefined类型</h4><p>  Undefined类型只有一个值，即特殊的Undefined。<br>  未经初始化的值默认就会取得Undefined值。<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> messsage;</span><br><span class="line">alert(message == <span class="literal">undefined</span>);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Null类型"><a href="#Null类型" class="headerlink" title="Null类型"></a>Null类型</h4><p>  Null类型只有一个值，即特殊的Null。<br>  Null的值表示一个空对象指针<br>  如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为null而不是其他值。</p>
+<h4 id="Boolean类型"><a href="#Boolean类型" class="headerlink" title="Boolean类型"></a>Boolean类型</h4><p>  Boolean有两个值，true和false.<br>  Boolean()函数可以将一个值转换为其对应的Boolean值，如：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">var</span> messageAsBoolean = <span class="built_in">Boolean</span>(message);</span><br></pre></td></tr></table></figure></p>
+<h4 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h4><p>  Number类型使用IEEE754格式来表示整数和浮点数。</p>
+<p>  isFinite()函数在参数位于最小与最大数值之间时会返回true。</p>
+<p>  NaN，即非数值（Not a Number）用于表示一个本来要返回数值的操作数未返回数值的情况。<br>  NaN有两个特点<br>    ①任何涉及NaN的操作都会返回NaN<br>    ②NaN与任何值都不对等，包括NaN本身。<br>  isNan()函数接收一个参数，这个方法可以确定这个参数是否“不是数值”， _isNaN()在接收到一个值后，会尝试将这个值转换为数值，不能转化为数值的值会返回true。 _</p>
+<p>  <strong> 数值转换 </strong><br>  有3个函数可以把非数值转换为数值：<br>    ①Number()       //用于任何数据类型<br>    ②parseInt()     //专门用于把字符串转换为数值<br>    ③parseFloat()   //专门用于把字符串转换为数值<br>  Number()  转换规则：</p>
+<ul>
+<li>如果是Boolean值，true和false将分别转换为1和0.</li>
+<li>如果是数字值，只是简单的传入和传出。</li>
+<li>如果是null值，返回0.</li>
+<li>如果是Undefined，返回NaN。</li>
+<li>如果是字符串，遵循下列规则<ul>
+<li>如果字符串中只包含数字，则将其转换为十进制数值，即”123”会变成123，”011”会变成11（注意:前导的0被忽略了）。</li>
+<li>如果字符串中包含有效的浮点格式，如”1.1”,则将其转换为对应的浮点数值（同样前导的0也会被忽略）。</li>
+<li>如果字符串中包含有效的十六进制格式，如”0xf”，则将其转化为相同大小的十进制数值。</li>
+<li>空字符串，转换为0。<br>+ 如果字符串中包含除以上格式之外的字符，则将其转换为NaN。</li>
+</ul>
+</li>
+<li>如果是对象，则调用对象的valueOf()方法，然后再一次按照前面的规则转换返回的值。如果转换的结果是NaN，则调用toString()方法，然后再依次按照前面的规则转换发挥的字符串值。</li>
+</ul>
+<p>parseInt() 转换规则<br>  parseInt()转换字符串时，会忽略字符串前面的空格，直至找到第一个非空格字符。<br>  如果第一个字符不是数字字符或者负号，parseInt()会返回NaN；<br>  如果第一个字符是数字字符，parseInt()会继续解析第二个字符，直到解析完所有后续字符或者遇到了一个非数字字符。<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">parseInt</span>(<span class="string">"1234blue"</span>);    <span class="comment">//1234</span></span><br><span class="line"><span class="keyword">var</span> num2 = <span class="built_in">parseInt</span>(<span class="string">""</span>);            <span class="comment">//NaN</span></span><br><span class="line"><span class="keyword">var</span> num3 = <span class="built_in">parseInt</span>(<span class="string">"22.5"</span>)         <span class="comment">//22</span></span><br></pre></td></tr></table></figure></p>
+<p>  parseInt()也可以识别出各种整数格式（八进制、十六进制、二进制），如果知道要解析的值转换的基数（即多少进制），那么需要指定对应的基数。<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//var num = parseInt("字符串",对应的基数)</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="string">"0xAF"</span>,<span class="number">16</span>);    <span class="comment">//175</span></span><br></pre></td></tr></table></figure></p>
+<p>  parseFloat() 转换规则<br>  parseFloat()会从第一个字符开始解析每个字符，直至解析玩所有后续字符或者遇到一个无效的浮点数字位置。<em>也就是说字符串中的第一个小数点是有效的，而第二个小数点是无效的</em><br>  parseFloat()只解析十进制</p>
+<h4 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h4><p>  String类型用于表示由零或多个16位Unicode字符组成的字符序列，即字符串。<br>  字符串可以由 ‘ 或 “ 表示，要成对出现。</p>
+<p>  <strong> 字符字面量 </strong><br>  String数据类型包含一些特殊的字符字面量，也叫<em>转移序列</em>，用于表示非打印字符，或者具有其他用途的字符。</p>
+<table>
+<thead>
+<tr>
+<th>字面量</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\n</td>
+<td style="text-align:center">换行</td>
+</tr>
+<tr>
+<td>\t</td>
+<td style="text-align:center">制表</td>
+</tr>
+<tr>
+<td>\b</td>
+<td style="text-align:center">空格</td>
+</tr>
+<tr>
+<td>\r</td>
+<td style="text-align:center">回车</td>
+</tr>
+<tr>
+<td>\f</td>
+<td style="text-align:center">进纸</td>
+</tr>
+<tr>
+<td><code>\\</code></td>
+<td style="text-align:center">斜杠</td>
+</tr>
+<tr>
+<td>\’</td>
+<td style="text-align:center">单引号（’），在用单引号的字符串中使用。例如：’He said, \’hey.\’’</td>
+</tr>
+<tr>
+<td>\”</td>
+<td style="text-align:center">双引号（”），在用单引号的字符串中使用。例如：”He said, \”hey.\””</td>
+</tr>
+</tbody>
+</table>
+<p>  <strong> 字符串的特点 </strong><br>    字符串是不可变的<br>  <strong> 转换为字符串 </strong><br>  toString()方法<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">alert(mun.toString());    <span class="comment">//"10"</span></span><br></pre></td></tr></table></figure></p>
+<p>  toString()方法 转换规则</p>
+<ul>
+<li>如果值有toString()方法，则调用该方法（没有参数）并返回相应的结果；</li>
+<li>如果值是null,则返回”null”；</li>
+<li>如果值是undefined,则返回“undefined”。</li>
+</ul>
+<h4 id="Object类型"><a href="#Object类型" class="headerlink" title="Object类型"></a>Object类型</h4><p>  ECMAScript中的对象其实就是一组数据和功能的集合。创建对象可以通过执行new操作符后跟要创建对象类型的名称来创建</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br></pre></td></tr></table></figure>
+<p>在ECMAScript中object类型是所有它的实例的基础。<br>  object每个实例都具有以下属性和方法</p>
+<ul>
+<li>constructor：保存着用于创建当前对象的函数。对于前面的例子而言，构造函数(constructor)就是Object()。</li>
+<li>hasOwnProperty(propertyName):用于检查给定的属性在当前对象实例中是否存在。其中，作为参数的属性名(propertyName)必须以字符串形式指定(例如：o.hasOwnProperty(“name”))。</li>
+<li>isPrototypeOf(object):用于检查传入的对象是否是传入对象的原型。</li>
+<li>propertyIsEnumerable(propertyName)用于检查给定的属性是否能够使用for-in语句来枚举，作为参数的属性名必须以字符串形式指定。</li>
+<li>toLocaleString():返回对象的字符串表示，该字符串与执行唤醒的地区对应。</li>
+<li>toString():返回对象的字符串表示。</li>
+<li>valueOf():返回对象的字符串、数值或布尔值表示。</li>
+</ul>
+<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><h4 id="一元操作符"><a href="#一元操作符" class="headerlink" title="一元操作符"></a>一元操作符</h4><p>  只能操作一个值的操作符叫一元操作符。<br> <strong>递增递减操作符</strong></p>
+<p>  前置型：</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age =<span class="number">29</span>;</span><br><span class="line">    ++age;      <span class="comment">//= age = age + 1;</span></span><br></pre></td></tr></table></figure>
+<p>  前置递增递减操作时，变量的值都是在语句中被求值以前改变的。<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age =<span class="number">29</span>;</span><br><span class="line"><span class="keyword">var</span> anotherAge = --age + <span class="number">2</span>;</span><br><span class="line">alert(age);     <span class="comment">//输出28</span></span><br><span class="line">alert(anotherAge);      <span class="comment">//输出30</span></span><br></pre></td></tr></table></figure></p>
+<p>  这个例子中变量anotherAge的初始值等于变量的值前置递减之后机上2。由于先执行了减法操作，age的值变成28，所以在加上2的结果就是30。</p>
+<p>  后置型：</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">29</span>;</span><br><span class="line">  age++;          <span class="comment">//age = age + 1;</span></span><br></pre></td></tr></table></figure>
+<p><strong> 后置递增递减与前置递增递减的区别，即递增和递减操作是在包含它们的语句被求值之后才执行的。 </strong></p>
+<p><strong> 相等操作符 </strong><br>  == != 相等和不相等—先转换操作数（通常称为<strong>强制转型</strong>）再比较<br>  === !== 全等和不全等—仅比较不转换</p>
+<p>  相等和不相等操作在转换不同数据类型时遵循以下基本规则：</p>
+<ul>
+<li>如果有一个操作数是布尔值，则在比较相等性之前先将其转换为数值–false转换为0，true转换为1；</li>
+<li>如果有一个操作数是字符串，另一个操作符是数值，在比较相等性之前先将字符串转换为数值；</li>
+<li>如果有一个操作数是对象，另一个操作数不是，则调用对象的valueOf()方法，用得到的基本类 型值按照前面的规则进行比较；</li>
+<li>这两个操作符在进行比较时要遵循以下规则：<ul>
+<li>null和Undefined是相等的。</li>
+<li>要比较相等性之前，不能将null和Undefined转换成其他任何值。</li>
+<li>如果有一个操作数是NaN，则相等操作符返回false，而不相等操作符返回true</li>
+<li>如果两个操作数都是对象，则比较它们是不是同一个对象。如果两个操作数都指向同一个对象，则相等操作符返回true；否则返回false。</li>
+</ul>
+</li>
+</ul>
+<p><strong> 条件操作符 </strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> max = (num1 &gt; num2) ? num1 : num2;</span><br></pre></td></tr></table></figure></p>
+<h4 id="语句-1"><a href="#语句-1" class="headerlink" title="语句"></a>语句</h4><p>语句也称为流控制语句。</p>
+<p><strong>if语句</strong></p>
+<p>语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(condition) statement1 <span class="keyword">else</span> staement2</span><br></pre></td></tr></table></figure></p>
+<p><strong> do-while语句</strong><br>do-while语句是一种后测试语句，在表达式求值之前，循环体内的代码至少会被执行一次。<br>语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  statement</span><br><span class="line">&#125;<span class="keyword">while</span>(expression);</span><br></pre></td></tr></table></figure></p>
+<p><strong>while语句</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(expression) statement;</span><br></pre></td></tr></table></figure></p>
+<p><strong>for语句</strong><br>for语句也是一种前测试循环语句，但它具有在执行循环之前初始化变量和定义循环后需要执行的代码的能力。<br>语法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(initialization;expression;post-loop-expression) statement</span><br><span class="line"></span><br><span class="line"><span class="comment">//实例</span></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> i;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>;i &gt; count;i++)&#123;</span><br><span class="line">  alert(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>for语句中的初始化表达式、控制表达式和循环后表达式都是可选的。</p>
+<p><strong>for-in语句</strong><br>for-in语句是一种精准的迭代语句，可以用来枚举对象的属性。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (property <span class="keyword">in</span> expression) statement</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> propName <span class="keyword">in</span> <span class="built_in">window</span>)&#123;</span><br><span class="line">  <span class="built_in">document</span>.write(propName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>label语句</strong><br>使用label语句可以在代码中添加标签，以便将来使用。一下是label语句的语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">label: statement</span><br></pre></td></tr></table></figure></p>
+<p><strong>break和continue语句</strong><br>break和continue语句用于在循环中精确地控制代码的执行。<br>其中，break语句会立即退出循环，强制继续执行循环后面的语句。<br>而continue语句虽然也是退出循环，但是退出循环后会从循环的顶部继续执行。</p>
+<p><strong>with语句</strong><br>with语句的作用是将代码的作用域设置到一个特定的对象中,语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span>(expression) statement</span><br></pre></td></tr></table></figure></p>
+<p>定义with语句的目的主要是为了简化多次编写同一个对象的工作。如下面的列子所示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> qs = location.search.substring(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> hostName = location.hostname;</span><br><span class="line"><span class="keyword">var</span> url = location.href;</span><br></pre></td></tr></table></figure></p>
+<p>上面几行代码都包含location对象，如果使用location语句，可把上面的代码改成如下所示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span>(location)&#123;</span><br><span class="line">  <span class="keyword">var</span> qs = search.substring(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">var</span> hostName = hostname;</span><br><span class="line">  <span class="keyword">var</span> url = href;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>switch语句</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (expression) &#123;</span><br><span class="line">  <span class="keyword">case</span> value: statement</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> value: statement</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>: statement</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>switch语句中国的每一种情形(case)的含义是：“如果表达式等于这个值value，则执行后面的语句statement”。</p>
+<p><strong>函数</strong></p>
+<p>ECMAScript中的函数使用function关键字来声明，后跟一组参数以及函数体，基本语法如下所示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fuZZnction functionName(arg0,arg1,...,argN)&#123;</span><br><span class="line">  statements</span><br><span class="line">&#125;<span class="string">`</span></span><br></pre></td></tr></table></figure></p>
+<p>实例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name,message</span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"hello"</span> + name + <span class="string">"message"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>任何函数在任何时候都可以通过return语句后跟要返回的值来实现返回值。如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1,num2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>位于return语句之后的任何代码都永远不会执行。如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1,num2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num1 + num2;</span><br><span class="line">  alert(<span class="string">"hello world"</span>);  <span class="comment">//永远不会被执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>理解参数</strong></p>
+<p>在ECMAScript中的参数在内部使用一个数组来表示的。<br>函数体内可以通过arguments对象来访问这个参数数组，从而获取传递给函数的每一个参数。<br>在arguments的值永远与对应命名参数的值保持同步。它们的内存空间是相互独立的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doAdd</span>(<span class="params">num1,num2</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">arguments</span>[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">  alert(<span class="built_in">arguments</span>[<span class="number">0</span>] + num2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>没有传递值的命名参数将自动被赋予Undefined值。</p>
+<h2 id="第四章-变量、作用域和内存问题"><a href="#第四章-变量、作用域和内存问题" class="headerlink" title="第四章 变量、作用域和内存问题"></a>第四章 变量、作用域和内存问题</h2><h3 id="基本类型和引用类型的值"><a href="#基本类型和引用类型的值" class="headerlink" title="基本类型和引用类型的值"></a>基本类型和引用类型的值</h3><p>ECMAscript中的变量包含<strong>基本类型值</strong>和<strong>引用类型值</strong>。<br>基本类型值指的是简单的数据段。<br>引用类型值指那些可能由多个值构成的对象。</p>
+<p><strong>动态的属性</strong><br>定义基本类型值和引用类型值是类似的：创建一个变量并为该变量赋值。对于引用类型的值，我们可以为其添加属性和方法，也可以改变和删除其属性和方法。<br>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name = <span class="string">"Nicholas"</span>;</span><br><span class="line">alert(person.name);     <span class="comment">//"Nicholas"</span></span><br></pre></td></tr></table></figure></p>
+<p>但是我们不用给基本类型的值添加属性。</p>
+<p><strong>复制变量值</strong><br>从一个变量向另一个变量复制基本类型值，会在变量对象上创建一个新值，然后把该值复制到为新变量分配的位置上。<br>当从一个变量向另一个变量复制引用类型值时，同样也会将存储在变量对象中的值复制一份放到新变量分配的空间中。不同的是，<strong>这个值的副本实际上是一个指针，而这个指针指向存储在堆中的一个对象。</strong>复制结束后，两个变量实际上引用同一个对象。因此改变其中一个变量，就会影响另一个变量。<br>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> obj2 = obj1;</span><br><span class="line">obj1.name = <span class="string">"Nicholas"</span>;</span><br><span class="line">alert(obj2.name);     <span class="comment">//"Nicholas"</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>传递参数</strong><br>在ECMAScript中，所有函数的参数都是按值传递的。<br>在向参数传递基本类型的值时，被传递的值会被复制给一个局部变量（即命名参数）。<br>在向参数传递引用类型的值时，会把这个值在内存中的地址复制给一个局部变量，因此这个局部变量的变化会反映在函数的外部。</p>
+<p><strong>检测类型</strong><br>typeOf操作符可以确定一个变量是字符串，数字，布尔值还是Undefined。如果变量的值是一个对象或者null，则typeOf会返回”object”。<br>检测引用类型是什么类型的对象需要用：instanceof操作符<br>语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = variable <span class="keyword">instanceof</span> <span class="keyword">constructor</span></span><br></pre></td></tr></table></figure></p>
+<p>如果变量是给定引用类型的实例。那么instanceof操作符就会返回true。<br>实例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(person <span class="keyword">instanceof</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>);     <span class="comment">//变量person是Object吗？</span></span><br><span class="line">alert(colors <span class="keyword">instanceof</span> <span class="keyword">instanceof</span> <span class="built_in">Array</span>);      <span class="comment">//变量colors是Array吗？</span></span><br><span class="line">alert(pattern <span class="keyword">instanceof</span> <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>);     <span class="comment">//变量pattern是RegExp吗？</span></span><br></pre></td></tr></table></figure></p>
+<p>在检测一个引用类型值和Object构造函数时，instanceof始终会返回true。</p>
+<p><strong>执行环境及作用域</strong><br>执行环境（execution context）定义了变量或函数有权访问的其他数据。<br>每个执行环境中都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。<br>全局执行环境是最外围的一个执行环境。在web浏览器中，全局执行环境被认为是window对象。<br>当代码在一个环境中被执行时，会创建变量对象的一个作用域链（scope chain），它的作用是保证对执行环境有权访问的所有变量和函数的有序访问。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> color = <span class="string">"blue"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeColor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(color === <span class="string">"blue"</span>)&#123;</span><br><span class="line">    color = <span class="string">"red"</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    color = <span class="string">"blue"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changeColor();</span><br><span class="line">alert(<span class="string">"Color is now "</span> + color);</span><br></pre></td></tr></table></figure>
+<p>在这个简单的例子中，函数changeColor()的作用域链包含了两个对象：它自己的变量对象（其中定义了auguments对象）和全局变量对象。 可以在函数内部访问变量color，就是因为可以在这个作用域链中找到它。<br>每个环境都可以向上搜索作用域链，以查询变量和函数名；但是任何环境都不能通过向下搜索作用域链从而进入另一个执行环境。</p>
+<p>小结：</p>
+<ul>
+<li>基本类型值在内存中占据固定大小的空间，因此被保存在栈内存中；</li>
+<li>从一个变量向另一个变量复制基本类型的值，会创建这个值的副本；</li>
+<li>引用类型的值是对象，保存在堆内存中。</li>
+<li>从一个变量向另一个变量复制引用类型的值，复制的其实是指针，因此两个变量最终指向同一个对象。</li>
+<li>确认一个值是那种基本类型可以使用typeof操作符 ，而确定一个值是那种引用类型可以用instanceof操作符。</li>
+<li>所有变量（包括基本类型和应用类型）都存在于一个执行环境（也称为作用域）当中，这个执行环境决定了变量的生命周期，以及哪一部分代码可以访问其中的变量。以下是关于执行环境的几点总结：<ul>
+<li>执行环境有全局执行环境（也称为全局环境）和函数执行环境之分；</li>
+<li>每次进入一个新执行环境，都会创建一个用于搜索变量和函数的作用域链；</li>
+<li>函数的局部环境不仅有权访问函数作用域中的变量，而且有权访问其包含（父）环境，乃至全局环境。</li>
+<li>全局环境只能访问全局环境中定义的变量和函数，而不能直接访问局部环境中的任何数据；</li>
+<li>变量的执行环境有助于确定应该何时释放内存。</li>
+</ul>
+</li>
+</ul>
+<h2 id="第五章-引用类型"><a href="#第五章-引用类型" class="headerlink" title="第五章 引用类型"></a>第五章 引用类型</h2><h3 id="Object类型-1"><a href="#Object类型-1" class="headerlink" title="Object类型"></a>Object类型</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/读书笔记/" rel="tag"># 读书笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/18/React-Router学习笔记/" rel="next" title="React Router学习笔记">
+                <i class="fa fa-chevron-left"></i> React Router学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="FiveSeveNyU">
+          <p class="site-author-name" itemprop="name">FiveSeveNyU</p>
+           
+              <p class="site-description motion-element" itemprop="description">脚踏实地，仰望星空</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/FiveSevenYu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/FiveSevenYu" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/FiveSevenYu" target="_blank" title="DouBan">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      DouBan
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/yu-ru-yi-30/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="night" target="_blank" title="highlight_theme">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      highlight_theme
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-JavaScript简介"><span class="nav-number">1.</span> <span class="nav-text">第一章 JavaScript简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript由-ECMAScript、DOM、BOM三部分组成。"><span class="nav-number">1.0.1.</span> <span class="nav-text">JavaScript由 ECMAScript、DOM、BOM三部分组成。</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-在HTML中使用JavaScript"><span class="nav-number">2.</span> <span class="nav-text">第二章 在HTML中使用JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-script-gt-元素"><span class="nav-number">2.1.</span> <span class="nav-text">&lt; script &gt;元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-lt-script-gt-元素的方式"><span class="nav-number">2.1.1.</span> <span class="nav-text">使用&lt; script &gt;元素的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签的位置"><span class="nav-number">2.1.2.</span> <span class="nav-text">标签的位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入代码与外部文件"><span class="nav-number">2.1.3.</span> <span class="nav-text">嵌入代码与外部文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章-基本概念"><span class="nav-number">3.</span> <span class="nav-text">第三章 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">3.1.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#区分大小写"><span class="nav-number">3.1.1.</span> <span class="nav-text">区分大小写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标识符"><span class="nav-number">3.1.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注释"><span class="nav-number">3.1.3.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#严格模式"><span class="nav-number">3.1.4.</span> <span class="nav-text">严格模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语句"><span class="nav-number">3.1.5.</span> <span class="nav-text">语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关键字和保留字"><span class="nav-number">3.1.6.</span> <span class="nav-text">关键字和保留字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">3.1.7.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">3.1.8.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Undefined类型"><span class="nav-number">3.1.9.</span> <span class="nav-text">Undefined类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Null类型"><span class="nav-number">3.1.10.</span> <span class="nav-text">Null类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boolean类型"><span class="nav-number">3.1.11.</span> <span class="nav-text">Boolean类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Number类型"><span class="nav-number">3.1.12.</span> <span class="nav-text">Number类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String类型"><span class="nav-number">3.1.13.</span> <span class="nav-text">String类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object类型"><span class="nav-number">3.1.14.</span> <span class="nav-text">Object类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作符"><span class="nav-number">3.2.</span> <span class="nav-text">操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一元操作符"><span class="nav-number">3.2.1.</span> <span class="nav-text">一元操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语句-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四章-变量、作用域和内存问题"><span class="nav-number">4.</span> <span class="nav-text">第四章 变量、作用域和内存问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型和引用类型的值"><span class="nav-number">4.1.</span> <span class="nav-text">基本类型和引用类型的值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五章-引用类型"><span class="nav-number">5.</span> <span class="nav-text">第五章 引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object类型-1"><span class="nav-number">5.1.</span> <span class="nav-text">Object类型</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FiveSeveNyU</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

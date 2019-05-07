@@ -340,199 +340,22 @@
 
       
         
-          
-            <h2 id="第一章-JavaScript简介"><a href="#第一章-JavaScript简介" class="headerlink" title="第一章 JavaScript简介"></a>第一章 JavaScript简介</h2><h4 id="JavaScript由-ECMAScript、DOM、BOM三部分组成。"><a href="#JavaScript由-ECMAScript、DOM、BOM三部分组成。" class="headerlink" title="JavaScript由 ECMAScript、DOM、BOM三部分组成。"></a>JavaScript由 ECMAScript、DOM、BOM三部分组成。</h4><p>  ECMAScript，由ECMA0262定义，提供核心语言功能。<br>  文档对象模型（DOM，Document Object Model）是针对XML但经过扩展用于HTML的应用编程接口（API，Application Programming Interface）。<br>  浏览器对象模型（BOM，Browser Object Model）提供与浏览器交互的方法和接口。</p>
+          <h2 id="第一章-JavaScript简介"><a href="#第一章-JavaScript简介" class="headerlink" title="第一章 JavaScript简介"></a>第一章 JavaScript简介</h2><h4 id="JavaScript由-ECMAScript、DOM、BOM三部分组成。"><a href="#JavaScript由-ECMAScript、DOM、BOM三部分组成。" class="headerlink" title="JavaScript由 ECMAScript、DOM、BOM三部分组成。"></a>JavaScript由 ECMAScript、DOM、BOM三部分组成。</h4><p>  ECMAScript，由ECMA0262定义，提供核心语言功能。<br>  文档对象模型（DOM，Document Object Model）是针对XML但经过扩展用于HTML的应用编程接口（API，Application Programming Interface）。<br>  浏览器对象模型（BOM，Browser Object Model）提供与浏览器交互的方法和接口。</p>
 <h2 id="第二章-在HTML中使用JavaScript"><a href="#第二章-在HTML中使用JavaScript" class="headerlink" title="第二章 在HTML中使用JavaScript"></a>第二章 在HTML中使用JavaScript</h2><h3 id="lt-script-gt-元素"><a href="#lt-script-gt-元素" class="headerlink" title="&lt; script &gt;元素"></a>&lt; script &gt;元素</h3><h4 id="使用-lt-script-gt-元素的方式"><a href="#使用-lt-script-gt-元素的方式" class="headerlink" title="使用&lt; script &gt;元素的方式"></a>使用&lt; script &gt;元素的方式</h4><p>  ①在页面中嵌入JavaScript代码<br>    <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">text/javascript</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  function sayHi()&#123;</span></span><br><span class="line"><span class="undefined">    alert("Hi");</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>  ②包含外部JavaScript文件。<br>    <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>  <span class="attr">src</span>=<span class="string">"example.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>  _ 注意：带有src属性的script元素如果包含了嵌入的代码，则只会下载并执行外部脚本文件，嵌入的代码会被忽略。 _ </p>
 <h4 id="标签的位置"><a href="#标签的位置" class="headerlink" title="标签的位置"></a>标签的位置</h4><p>  传统做法中会将&lt; script &gt;元素全部放在页面的&lt; head &gt;元素中<br>  但是这意味着全部的JavaScript代码被下载解析执行完毕后才能开始呈现页面内容。将会导致页面在加载页面之前会有些许延迟，为了避免这个问题，<strong> 一般将JavaScript代码放置在&lt; body &gt;元素中页面内容的后面。</strong></p>
-<h4 id="嵌入代码与外部文件"><a href="#嵌入代码与外部文件" class="headerlink" title="嵌入代码与外部文件"></a>嵌入代码与外部文件</h4><p>  一般认为最好的做法还是尽可能的是用外部文件来包含JavaScript代码。<br>  其有可维护，可缓存等优点</p>
-<h2 id="第三章-基本概念"><a href="#第三章-基本概念" class="headerlink" title="第三章 基本概念"></a>第三章 基本概念</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><h4 id="区分大小写"><a href="#区分大小写" class="headerlink" title="区分大小写"></a>区分大小写</h4><p>  ECMAScript中的一切（变量、函数名和操作符）都区分大小写。</p>
-<h4 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h4><p>  <strong> 就是指变量、函数、属性的名字、或者函数的参数。</strong><br>  标识符可以是按照以下规则组合起来的一个或多个字符：</p>
-<ul>
-<li>第一个字符必须是一个字母、下划线(_)或者一个美元符号($)；</li>
-<li>其他字符可以是字母、下划线、美元符号或数字。<br>ECMAScript标识符采用<strong>驼峰大小写</strong>格式，也就是第一个字母小写，剩下的每个单词的首字母大写。例如：<br>doSomethingImportant</li>
-</ul>
-<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p>  单行注释<br>    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单行注释</span></span><br></pre></td></tr></table></figure></p>
-<p>  块级注释<br>    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*   这是一个多行</span></span><br><span class="line"><span class="comment">*   （块级）注释</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h4><p>  ECMAScript 5引入了严格模式（strict mode）的概念。<br>  启用严格模式，需在代码顶部添加如下代码：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span></span><br></pre></td></tr></table></figure></p>
-<p>  在函数内部的上方包含这条编译知识，也可以指定函数在严格模式下执行：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>;</span><br><span class="line">  <span class="comment">//函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h4><p>  ECMAScript中的语句以一个分好结尾；如果省略分好，则界学习期确定语句的结尾。<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = a + b     <span class="comment">//即使没有分号也是有效的语句---不推荐</span></span><br><span class="line"><span class="keyword">var</span> sum = a + b;    <span class="comment">//有效的语句---推荐</span></span><br></pre></td></tr></table></figure></p>
-<p>  在控制语句中使用代码块<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(test)</span><br><span class="line">  alert(test);    <span class="comment">//有效但容易出错，不要使用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(test)&#123;</span><br><span class="line">  alert(test);    <span class="comment">//推荐使用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="关键字和保留字"><a href="#关键字和保留字" class="headerlink" title="关键字和保留字"></a>关键字和保留字</h4><p>  关键字：<br>   break  do  instanceof  typeof<br>   case else new var<br>   catch finally return void<br>   continue for switch while<br>   debuger function this with<br>   default if throw<br>   delete in try<br>  保留字：<br>  class enum extends super<br>  const export inport</p>
-<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>  ECMAScript变量是松散型（可以用来保存任何类型的数据）的。<br>  定义变量时要使用var操作符，后跟变量名：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message</span><br></pre></td></tr></table></figure></p>
-<p>  也可以直接初始化<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"hi"</span>;</span><br></pre></td></tr></table></figure></p>
-<p>  <em>使用var操作符定义的变量将成为定义该变量的作用域中的局部变量</em><br>  同时定义多个变量：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"hi"</span>,</span><br><span class="line">      found = <span class="literal">false</span>,</span><br><span class="line">      age = <span class="number">29</span>;</span><br></pre></td></tr></table></figure></p>
-<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>  ECMAScript中有 <strong> Undefined、Null、Boolean、Number、String </strong> 五种<strong>基本数据类型</strong>，还有一种复杂数据类型–Object,<strong> Object本质上是由一组无需的名值对组成的 </strong></p>
-<p>  <strong> typeof操作符 </strong></p>
-<p>  用来检测变量的数据类型<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"some string"</span>;</span><br><span class="line">alert(<span class="keyword">typeof</span> message);      <span class="comment">//"string"</span></span><br><span class="line">alert(<span class="keyword">typeof</span> <span class="number">90</span>);           <span class="comment">//"number"</span></span><br></pre></td></tr></table></figure></p>
-<p>  <em>注意：调用typeof null会返回“object”，因为特殊值null被认为是一个空的对象引用。</em></p>
-<h4 id="Undefined类型"><a href="#Undefined类型" class="headerlink" title="Undefined类型"></a>Undefined类型</h4><p>  Undefined类型只有一个值，即特殊的Undefined。<br>  未经初始化的值默认就会取得Undefined值。<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> messsage;</span><br><span class="line">alert(message == <span class="literal">undefined</span>);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="Null类型"><a href="#Null类型" class="headerlink" title="Null类型"></a>Null类型</h4><p>  Null类型只有一个值，即特殊的Null。<br>  Null的值表示一个空对象指针<br>  如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为null而不是其他值。</p>
-<h4 id="Boolean类型"><a href="#Boolean类型" class="headerlink" title="Boolean类型"></a>Boolean类型</h4><p>  Boolean有两个值，true和false.<br>  Boolean()函数可以将一个值转换为其对应的Boolean值，如：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">var</span> messageAsBoolean = <span class="built_in">Boolean</span>(message);</span><br></pre></td></tr></table></figure></p>
-<h4 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h4><p>  Number类型使用IEEE754格式来表示整数和浮点数。</p>
-<p>  isFinite()函数在参数位于最小与最大数值之间时会返回true。</p>
-<p>  NaN，即非数值（Not a Number）用于表示一个本来要返回数值的操作数未返回数值的情况。<br>  NaN有两个特点<br>    ①任何涉及NaN的操作都会返回NaN<br>    ②NaN与任何值都不对等，包括NaN本身。<br>  isNan()函数接收一个参数，这个方法可以确定这个参数是否“不是数值”， _isNaN()在接收到一个值后，会尝试将这个值转换为数值，不能转化为数值的值会返回true。 _</p>
-<p>  <strong> 数值转换 </strong><br>  有3个函数可以把非数值转换为数值：<br>    ①Number()       //用于任何数据类型<br>    ②parseInt()     //专门用于把字符串转换为数值<br>    ③parseFloat()   //专门用于把字符串转换为数值<br>  Number()  转换规则：</p>
-<ul>
-<li>如果是Boolean值，true和false将分别转换为1和0.</li>
-<li>如果是数字值，只是简单的传入和传出。</li>
-<li>如果是null值，返回0.</li>
-<li>如果是Undefined，返回NaN。</li>
-<li>如果是字符串，遵循下列规则<ul>
-<li>如果字符串中只包含数字，则将其转换为十进制数值，即”123”会变成123，”011”会变成11（注意:前导的0被忽略了）。</li>
-<li>如果字符串中包含有效的浮点格式，如”1.1”,则将其转换为对应的浮点数值（同样前导的0也会被忽略）。</li>
-<li>如果字符串中包含有效的十六进制格式，如”0xf”，则将其转化为相同大小的十进制数值。</li>
-<li>空字符串，转换为0。<br>+ 如果字符串中包含除以上格式之外的字符，则将其转换为NaN。</li>
-</ul>
-</li>
-<li>如果是对象，则调用对象的valueOf()方法，然后再一次按照前面的规则转换返回的值。如果转换的结果是NaN，则调用toString()方法，然后再依次按照前面的规则转换发挥的字符串值。</li>
-</ul>
-<p>parseInt() 转换规则<br>  parseInt()转换字符串时，会忽略字符串前面的空格，直至找到第一个非空格字符。<br>  如果第一个字符不是数字字符或者负号，parseInt()会返回NaN；<br>  如果第一个字符是数字字符，parseInt()会继续解析第二个字符，直到解析完所有后续字符或者遇到了一个非数字字符。<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">parseInt</span>(<span class="string">"1234blue"</span>);    <span class="comment">//1234</span></span><br><span class="line"><span class="keyword">var</span> num2 = <span class="built_in">parseInt</span>(<span class="string">""</span>);            <span class="comment">//NaN</span></span><br><span class="line"><span class="keyword">var</span> num3 = <span class="built_in">parseInt</span>(<span class="string">"22.5"</span>)         <span class="comment">//22</span></span><br></pre></td></tr></table></figure></p>
-<p>  parseInt()也可以识别出各种整数格式（八进制、十六进制、二进制），如果知道要解析的值转换的基数（即多少进制），那么需要指定对应的基数。<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//var num = parseInt("字符串",对应的基数)</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="string">"0xAF"</span>,<span class="number">16</span>);    <span class="comment">//175</span></span><br></pre></td></tr></table></figure></p>
-<p>  parseFloat() 转换规则<br>  parseFloat()会从第一个字符开始解析每个字符，直至解析玩所有后续字符或者遇到一个无效的浮点数字位置。<em>也就是说字符串中的第一个小数点是有效的，而第二个小数点是无效的</em><br>  parseFloat()只解析十进制</p>
-<h4 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h4><p>  String类型用于表示由零或多个16位Unicode字符组成的字符序列，即字符串。<br>  字符串可以由 ‘ 或 “ 表示，要成对出现。</p>
-<p>  <strong> 字符字面量 </strong><br>  String数据类型包含一些特殊的字符字面量，也叫<em>转移序列</em>，用于表示非打印字符，或者具有其他用途的字符。</p>
-<table>
-<thead>
-<tr>
-<th>字面量</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\n</td>
-<td style="text-align:center">换行</td>
-</tr>
-<tr>
-<td>\t</td>
-<td style="text-align:center">制表</td>
-</tr>
-<tr>
-<td>\b</td>
-<td style="text-align:center">空格</td>
-</tr>
-<tr>
-<td>\r</td>
-<td style="text-align:center">回车</td>
-</tr>
-<tr>
-<td>\f</td>
-<td style="text-align:center">进纸</td>
-</tr>
-<tr>
-<td><code>\\</code></td>
-<td style="text-align:center">斜杠</td>
-</tr>
-<tr>
-<td>\’</td>
-<td style="text-align:center">单引号（’），在用单引号的字符串中使用。例如：’He said, \’hey.\’’</td>
-</tr>
-<tr>
-<td>\”</td>
-<td style="text-align:center">双引号（”），在用单引号的字符串中使用。例如：”He said, \”hey.\””</td>
-</tr>
-</tbody>
-</table>
-<p>  <strong> 字符串的特点 </strong><br>    字符串是不可变的<br>  <strong> 转换为字符串 </strong><br>  toString()方法<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">alert(mun.toString());    <span class="comment">//"10"</span></span><br></pre></td></tr></table></figure></p>
-<p>  toString()方法 转换规则</p>
-<ul>
-<li>如果值有toString()方法，则调用该方法（没有参数）并返回相应的结果；</li>
-<li>如果值是null,则返回”null”；</li>
-<li>如果值是undefined,则返回“undefined”。</li>
-</ul>
-<h4 id="Object类型"><a href="#Object类型" class="headerlink" title="Object类型"></a>Object类型</h4><p>  ECMAScript中的对象其实就是一组数据和功能的集合。创建对象可以通过执行new操作符后跟要创建对象类型的名称来创建</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br></pre></td></tr></table></figure>
-<p>在ECMAScript中object类型是所有它的实例的基础。<br>  object每个实例都具有以下属性和方法</p>
-<ul>
-<li>constructor：保存着用于创建当前对象的函数。对于前面的例子而言，构造函数(constructor)就是Object()。</li>
-<li>hasOwnProperty(propertyName):用于检查给定的属性在当前对象实例中是否存在。其中，作为参数的属性名(propertyName)必须以字符串形式指定(例如：o.hasOwnProperty(“name”))。</li>
-<li>isPrototypeOf(object):用于检查传入的对象是否是传入对象的原型。</li>
-<li>propertyIsEnumerable(propertyName)用于检查给定的属性是否能够使用for-in语句来枚举，作为参数的属性名必须以字符串形式指定。</li>
-<li>toLocaleString():返回对象的字符串表示，该字符串与执行唤醒的地区对应。</li>
-<li>toString():返回对象的字符串表示。</li>
-<li>valueOf():返回对象的字符串、数值或布尔值表示。</li>
-</ul>
-<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><h4 id="一元操作符"><a href="#一元操作符" class="headerlink" title="一元操作符"></a>一元操作符</h4><p>  只能操作一个值的操作符叫一元操作符。<br> <strong>递增递减操作符</strong></p>
-<p>  前置型：</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age =<span class="number">29</span>;</span><br><span class="line">    ++age;      <span class="comment">//= age = age + 1;</span></span><br></pre></td></tr></table></figure>
-<p>  前置递增递减操作时，变量的值都是在语句中被求值以前改变的。<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age =<span class="number">29</span>;</span><br><span class="line"><span class="keyword">var</span> anotherAge = --age + <span class="number">2</span>;</span><br><span class="line">alert(age);     <span class="comment">//输出28</span></span><br><span class="line">alert(anotherAge);      <span class="comment">//输出30</span></span><br></pre></td></tr></table></figure></p>
-<p>  这个例子中变量anotherAge的初始值等于变量的值前置递减之后机上2。由于先执行了减法操作，age的值变成28，所以在加上2的结果就是30。</p>
-<p>  后置型：</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">29</span>;</span><br><span class="line">  age++;          <span class="comment">//age = age + 1;</span></span><br></pre></td></tr></table></figure>
-<p><strong> 后置递增递减与前置递增递减的区别，即递增和递减操作是在包含它们的语句被求值之后才执行的。 </strong></p>
-<p><strong> 相等操作符 </strong><br>  == != 相等和不相等—先转换操作数（通常称为<strong>强制转型</strong>）再比较<br>  === !== 全等和不全等—仅比较不转换</p>
-<p>  相等和不相等操作在转换不同数据类型时遵循以下基本规则：</p>
-<ul>
-<li>如果有一个操作数是布尔值，则在比较相等性之前先将其转换为数值–false转换为0，true转换为1；</li>
-<li>如果有一个操作数是字符串，另一个操作符是数值，在比较相等性之前先将字符串转换为数值；</li>
-<li>如果有一个操作数是对象，另一个操作数不是，则调用对象的valueOf()方法，用得到的基本类 型值按照前面的规则进行比较；</li>
-<li>这两个操作符在进行比较时要遵循以下规则：<ul>
-<li>null和Undefined是相等的。</li>
-<li>要比较相等性之前，不能将null和Undefined转换成其他任何值。</li>
-<li>如果有一个操作数是NaN，则相等操作符返回false，而不相等操作符返回true</li>
-<li>如果两个操作数都是对象，则比较它们是不是同一个对象。如果两个操作数都指向同一个对象，则相等操作符返回true；否则返回false。</li>
-</ul>
-</li>
-</ul>
-<p><strong> 条件操作符 </strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> max = (num1 &gt; num2) ? num1 : num2;</span><br></pre></td></tr></table></figure></p>
-<h4 id="语句-1"><a href="#语句-1" class="headerlink" title="语句"></a>语句</h4><p>语句也称为流控制语句。</p>
-<p><strong>if语句</strong></p>
-<p>语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(condition) statement1 <span class="keyword">else</span> staement2</span><br></pre></td></tr></table></figure></p>
-<p><strong> do-while语句</strong><br>do-while语句是一种后测试语句，在表达式求值之前，循环体内的代码至少会被执行一次。<br>语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  statement</span><br><span class="line">&#125;<span class="keyword">while</span>(expression);</span><br></pre></td></tr></table></figure></p>
-<p><strong>while语句</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(expression) statement;</span><br></pre></td></tr></table></figure></p>
-<p><strong>for语句</strong><br>for语句也是一种前测试循环语句，但它具有在执行循环之前初始化变量和定义循环后需要执行的代码的能力。<br>语法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(initialization;expression;post-loop-expression) statement</span><br><span class="line"></span><br><span class="line"><span class="comment">//实例</span></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> i;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>;i &gt; count;i++)&#123;</span><br><span class="line">  alert(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>for语句中的初始化表达式、控制表达式和循环后表达式都是可选的。</p>
-<p><strong>for-in语句</strong><br>for-in语句是一种精准的迭代语句，可以用来枚举对象的属性。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (property <span class="keyword">in</span> expression) statement</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> propName <span class="keyword">in</span> <span class="built_in">window</span>)&#123;</span><br><span class="line">  <span class="built_in">document</span>.write(propName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>label语句</strong><br>使用label语句可以在代码中添加标签，以便将来使用。一下是label语句的语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">label: statement</span><br></pre></td></tr></table></figure></p>
-<p><strong>break和continue语句</strong><br>break和continue语句用于在循环中精确地控制代码的执行。<br>其中，break语句会立即退出循环，强制继续执行循环后面的语句。<br>而continue语句虽然也是退出循环，但是退出循环后会从循环的顶部继续执行。</p>
-<p><strong>with语句</strong><br>with语句的作用是将代码的作用域设置到一个特定的对象中,语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span>(expression) statement</span><br></pre></td></tr></table></figure></p>
-<p>定义with语句的目的主要是为了简化多次编写同一个对象的工作。如下面的列子所示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> qs = location.search.substring(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> hostName = location.hostname;</span><br><span class="line"><span class="keyword">var</span> url = location.href;</span><br></pre></td></tr></table></figure></p>
-<p>上面几行代码都包含location对象，如果使用location语句，可把上面的代码改成如下所示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span>(location)&#123;</span><br><span class="line">  <span class="keyword">var</span> qs = search.substring(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">var</span> hostName = hostname;</span><br><span class="line">  <span class="keyword">var</span> url = href;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>switch语句</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (expression) &#123;</span><br><span class="line">  <span class="keyword">case</span> value: statement</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> value: statement</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>: statement</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>switch语句中国的每一种情形(case)的含义是：“如果表达式等于这个值value，则执行后面的语句statement”。</p>
-<p><strong>函数</strong></p>
-<p>ECMAScript中的函数使用function关键字来声明，后跟一组参数以及函数体，基本语法如下所示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fuZZnction functionName(arg0,arg1,...,argN)&#123;</span><br><span class="line">  statements</span><br><span class="line">&#125;<span class="string">`</span></span><br></pre></td></tr></table></figure></p>
-<p>实例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name,message</span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"hello"</span> + name + <span class="string">"message"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>任何函数在任何时候都可以通过return语句后跟要返回的值来实现返回值。如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1,num2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>位于return语句之后的任何代码都永远不会执行。如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1,num2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num1 + num2;</span><br><span class="line">  alert(<span class="string">"hello world"</span>);  <span class="comment">//永远不会被执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>理解参数</strong></p>
-<p>在ECMAScript中的参数在内部使用一个数组来表示的。<br>函数体内可以通过arguments对象来访问这个参数数组，从而获取传递给函数的每一个参数。<br>在arguments的值永远与对应命名参数的值保持同步。它们的内存空间是相互独立的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doAdd</span>(<span class="params">num1,num2</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">arguments</span>[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">  alert(<span class="built_in">arguments</span>[<span class="number">0</span>] + num2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>没有传递值的命名参数将自动被赋予Undefined值。</p>
-<h2 id="第四章-变量、作用域和内存问题"><a href="#第四章-变量、作用域和内存问题" class="headerlink" title="第四章 变量、作用域和内存问题"></a>第四章 变量、作用域和内存问题</h2><h3 id="基本类型和引用类型的值"><a href="#基本类型和引用类型的值" class="headerlink" title="基本类型和引用类型的值"></a>基本类型和引用类型的值</h3><p>ECMAscript中的变量包含<strong>基本类型值</strong>和<strong>引用类型值</strong>。<br>基本类型值指的是简单的数据段。<br>引用类型值指那些可能由多个值构成的对象。</p>
-<p><strong>动态的属性</strong><br>定义基本类型值和引用类型值是类似的：创建一个变量并为该变量赋值。对于引用类型的值，我们可以为其添加属性和方法，也可以改变和删除其属性和方法。<br>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name = <span class="string">"Nicholas"</span>;</span><br><span class="line">alert(person.name);     <span class="comment">//"Nicholas"</span></span><br></pre></td></tr></table></figure></p>
-<p>但是我们不用给基本类型的值添加属性。</p>
-<p><strong>复制变量值</strong><br>从一个变量向另一个变量复制基本类型值，会在变量对象上创建一个新值，然后把该值复制到为新变量分配的位置上。<br>当从一个变量向另一个变量复制引用类型值时，同样也会将存储在变量对象中的值复制一份放到新变量分配的空间中。不同的是，<strong>这个值的副本实际上是一个指针，而这个指针指向存储在堆中的一个对象。</strong>复制结束后，两个变量实际上引用同一个对象。因此改变其中一个变量，就会影响另一个变量。<br>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> obj2 = obj1;</span><br><span class="line">obj1.name = <span class="string">"Nicholas"</span>;</span><br><span class="line">alert(obj2.name);     <span class="comment">//"Nicholas"</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>传递参数</strong><br>在ECMAScript中，所有函数的参数都是按值传递的。<br>在向参数传递基本类型的值时，被传递的值会被复制给一个局部变量（即命名参数）。<br>在向参数传递引用类型的值时，会把这个值在内存中的地址复制给一个局部变量，因此这个局部变量的变化会反映在函数的外部。</p>
-<p><strong>检测类型</strong><br>typeOf操作符可以确定一个变量是字符串，数字，布尔值还是Undefined。如果变量的值是一个对象或者null，则typeOf会返回”object”。<br>检测引用类型是什么类型的对象需要用：instanceof操作符<br>语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = variable <span class="keyword">instanceof</span> <span class="keyword">constructor</span></span><br></pre></td></tr></table></figure></p>
-<p>如果变量是给定引用类型的实例。那么instanceof操作符就会返回true。<br>实例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(person <span class="keyword">instanceof</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>);     <span class="comment">//变量person是Object吗？</span></span><br><span class="line">alert(colors <span class="keyword">instanceof</span> <span class="keyword">instanceof</span> <span class="built_in">Array</span>);      <span class="comment">//变量colors是Array吗？</span></span><br><span class="line">alert(pattern <span class="keyword">instanceof</span> <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>);     <span class="comment">//变量pattern是RegExp吗？</span></span><br></pre></td></tr></table></figure></p>
-<p>在检测一个引用类型值和Object构造函数时，instanceof始终会返回true。</p>
-<p><strong>执行环境及作用域</strong><br>执行环境（execution context）定义了变量或函数有权访问的其他数据。<br>每个执行环境中都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。<br>全局执行环境是最外围的一个执行环境。在web浏览器中，全局执行环境被认为是window对象。<br>当代码在一个环境中被执行时，会创建变量对象的一个作用域链（scope chain），它的作用是保证对执行环境有权访问的所有变量和函数的有序访问。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> color = <span class="string">"blue"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeColor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(color === <span class="string">"blue"</span>)&#123;</span><br><span class="line">    color = <span class="string">"red"</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    color = <span class="string">"blue"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changeColor();</span><br><span class="line">alert(<span class="string">"Color is now "</span> + color);</span><br></pre></td></tr></table></figure>
-<p>在这个简单的例子中，函数changeColor()的作用域链包含了两个对象：它自己的变量对象（其中定义了auguments对象）和全局变量对象。 可以在函数内部访问变量color，就是因为可以在这个作用域链中找到它。<br>每个环境都可以向上搜索作用域链，以查询变量和函数名；但是任何环境都不能通过向下搜索作用域链从而进入另一个执行环境。</p>
-<p>小结：</p>
-<ul>
-<li>基本类型值在内存中占据固定大小的空间，因此被保存在栈内存中；</li>
-<li>从一个变量向另一个变量复制基本类型的值，会创建这个值的副本；</li>
-<li>引用类型的值是对象，保存在堆内存中。</li>
-<li>从一个变量向另一个变量复制引用类型的值，复制的其实是指针，因此两个变量最终指向同一个对象。</li>
-<li>确认一个值是那种基本类型可以使用typeof操作符 ，而确定一个值是那种引用类型可以用instanceof操作符。</li>
-<li>所有变量（包括基本类型和应用类型）都存在于一个执行环境（也称为作用域）当中，这个执行环境决定了变量的生命周期，以及哪一部分代码可以访问其中的变量。以下是关于执行环境的几点总结：<ul>
-<li>执行环境有全局执行环境（也称为全局环境）和函数执行环境之分；</li>
-<li>每次进入一个新执行环境，都会创建一个用于搜索变量和函数的作用域链；</li>
-<li>函数的局部环境不仅有权访问函数作用域中的变量，而且有权访问其包含（父）环境，乃至全局环境。</li>
-<li>全局环境只能访问全局环境中定义的变量和函数，而不能直接访问局部环境中的任何数据；</li>
-<li>变量的执行环境有助于确定应该何时释放内存。</li>
-</ul>
-</li>
-</ul>
-<h2 id="第五章-引用类型"><a href="#第五章-引用类型" class="headerlink" title="第五章 引用类型"></a>第五章 引用类型</h2><h3 id="Object类型-1"><a href="#Object类型-1" class="headerlink" title="Object类型"></a>Object类型</h3>
-          
+<h4 id="嵌入代码与外部文件"><a href="#嵌入代码与外部文件" class="headerlink" title="嵌入代码与外部文件"></a>嵌入代码与外部文件</h4><p>  一般认为最好的做法还是尽可能的是用外部文件来包含JavaScript代码。<br>  其有可维护，可缓存等优点<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/18/JavaScript高级程序设计读书笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -646,27 +469,20 @@
 
       
         
-          
-            <p>引入<br>React Router分成三个包：<br>react-router<br>react-router-dom    //浏览器<br>react-router-native  //native</p>
+          <p>引入<br>React Router分成三个包：<br>react-router<br>react-router-dom    //浏览器<br>react-router-native  //native</p>
 <p>路由器<br>对于网页项目，有<browserrouter>与<hashrouter>两种组件。</hashrouter></browserrouter></p>
 <p><browserrouter> //当存在服务区来管理动态请求时</browserrouter></p>
-<p><hashrouter> //用于静态网站</hashrouter></p>
-<p><route><br>它最基本的职责是当页面的访问地址与Route上的path匹配时，就渲染出对应的UI页面。</route></p>
-<p><route>自带三个render method和三个 props.<br>render method分别是：</route></p>
-<ul>
-<li>Route component</li>
-<li>Route render</li>
-<li>Route children<br>每种 render method 都有不同的应用场景，同一个<route>应该只能使用一种render method，大部分情况下你将使用component。<br>props分别是：</route></li>
-<li>match</li>
-<li>location</li>
-<li>history<br>所有的render method 五一例外都将传入这些props.</li>
-</ul>
-<p>component<br>component<br>只有当访问地址和路由匹配时，一个 React component 才会被渲染，此时此组件接受 route props (match, location, history)。<br>当使用 component 时，router 将使用 React.createElement 根据给定的 component 创建一个新的 React 元素。这意味着如果你使用内联函数（inline function）传值给 component 将会产生不必要的重复装载。对于内联渲染（inline rendering）, 建议使用 render prop。</p>
-
-          
+<p><hashrouter> //用于静态网站<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/18/React-Router学习笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </hashrouter></p></div>
     
     
     
@@ -780,271 +596,17 @@
 
       
         
-          
-            <p>转载自 <a href="https://juejin.im/post/5a2bc28f6fb9a044fe464b19" target="_blank" rel="noopener">掘金：SimonMa（学习Less-看这篇就够了</a></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="CSS的短板"><a href="#CSS的短板" class="headerlink" title="CSS的短板"></a>CSS的短板</h3><p>作为前端学习者的我们 或多或少都要学些 CSS ，它作为前端开发的三大基石之一，时刻引领着 Web 的发展潮向。 而 CSS 作为一门标记性语言，可能 给初学者第一印象 就是简单易懂，毫无逻辑，不像编程该有的样子。在语法更新时，每当新属性提出，浏览器的兼容又会马上变成绊脚石，可以说 CSS 短板不容忽视。<br>问题的诞生往往伴随着技术的兴起， 在 Web 发展的这几年， 为了让 CSS 富有逻辑性，短板不那么严重，涌现出了 一些神奇的预处理语言。 它们让 CSS 彻底变成一门 可以使用 变量 、循环 、继承 、自定义方法等多种特性的标记语言，逻辑性得以大大增强。</p>
-<h3 id="预处理语言的诞生"><a href="#预处理语言的诞生" class="headerlink" title="预处理语言的诞生"></a>预处理语言的诞生</h3><p>其中 就我所知的有三门语言：Sass、Less 、Stylus 。</p>
-<p>Sass 诞生于 2007 年，Ruby 编写，其语法功能都十分全面，可以说 它完全把 CSS 变成了一门编程语言。另外 在国内外都很受欢迎，并且它的项目团队很是强大 ，是一款十分优秀的预处理语言。<br>Stylus 诞生于 2010 年，来自 Node.js 社区，语法功能也和 Sass 不相伯仲，是一门十分独特的创新型语言。<br>Less 诞生于 2009 年，受Sass的影响创建的一个开源项目。 它扩充了 CSS 语言，增加了诸如变量、混合（mixin）、函数等功能，让 CSS 更易维护、方便制作主题、扩充（引用于官网）。</p>
-<h3 id="选择预处理语言"><a href="#选择预处理语言" class="headerlink" title="选择预处理语言"></a>选择预处理语言</h3><p>这是一个十分纠结的问题。</p>
-<ol>
-<li>在我看来，这就好比 找女朋友，有人喜欢 贤惠安静的，就有人喜欢 活泼爱闹的，各有各的爱好，可晚上闭灯后 其实都差不多，所以你不用太过纠结。当然了 ，首先 你要有女朋友。</li>
-<li>在网上讨论看来，Sass 与 Stylus 相比于 Less 功能更为丰富，但对于学习成本以及适应时间 ，Less 稍胜一筹，这也是我选择 Less 的原因。</li>
-<li>Less 没有去掉任何 CSS 的功能，而是在现有的语法上，增添了许多额外的功能特性，所以学习 Less 是一件非常舒服的事情。</li>
-</ol>
-<p>如果你之前没有接触过预处理语言，纠结应该学哪一个，不如先看看 下面 Less 的介绍，我相信你会爱上它的。</p>
-<h3 id="使用-Less-的前奏"><a href="#使用-Less-的前奏" class="headerlink" title="使用 Less 的前奏"></a>使用 Less 的前奏</h3><p>使用 Less 有两种方式</p>
-<p>1.在页面中 引入 Less.js</p>
-<ul>
-<li>可在官网下载</li>
-<li>或使用CDN</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>需要注意的是，link 标签一定要在 Less.js 之前引入，并且 link 标签的 rel 属性要设置为stylesheet/less。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet/less&quot; href=&quot;style.less&quot;&gt;</span><br><span class="line">&lt;script src=&quot;less.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>2.在命令行 使用npm安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g less</span><br></pre></td></tr></table></figure></p>
-<p>具体使用命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lessc styles.less &gt; styles.css</span><br></pre></td></tr></table></figure></p>
-<p>假如还有问题，<a href="http://less.bootcss.com" target="_blank" rel="noopener">官网</a>已经有了明确的步骤。<br>如果你也是 Webpack 的使用者，还需要配合 less-loader 进行处理，具体可见我的这篇文章：<a href="https://tomotoes.com/posts/4d6f8cc5/" target="_blank" rel="noopener">Webpack飞行手册</a>，里面详细说明了 less 的处理方式。<br>如果你在本地环境，可以使用第一种方式，非常简单；但在生产环境中，性能非常重要，最好使用第二种方式。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>下面我将简介 Less 的功能特性。</p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>我们常常在 CSS 中 看到同一个值重复多次，这样难易于代码维护。<br>理想状态，应是下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const bgColor=&quot;skyblue&quot;;</span><br><span class="line">$(&quot;.post-content&quot;).css(&quot;background-color&quot;,bgColor);</span><br><span class="line">$(&quot;#wrap&quot;).css(&quot;background-color&quot;,bgColor);</span><br><span class="line">$(&quot;.arctive&quot;).css(&quot;background-color&quot;,bgColor);</span><br></pre></td></tr></table></figure></p>
-<p>只要我们修改 bgColor这一个变量， 整个页面的背景颜色都会随之改变。<br>而 Less 中的变量十分强大，可化万物，值得一提的是，其变量是常量 ，所以只能定义一次，不能重复使用。</p>
-<p><strong>1.变量</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">@color: #999;</span><br><span class="line">@bgColor: skyblue;//不要添加引号</span><br><span class="line">@width: 50%;</span><br><span class="line">#wrap &#123;</span><br><span class="line">  color: @color;</span><br><span class="line">  background: @bgColor;</span><br><span class="line">  width: @width;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成后的 CSS */</span><br><span class="line">#wrap &#123;</span><br><span class="line">  color: #999;</span><br><span class="line">  background: skyblue;</span><br><span class="line">  width: 50%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以 @ 开头 定义变量，并且使用时 直接 键入 @名称。<br>在平时工作中，我们就可以把 常用的变量 封装到一个文件中，这样利于代码组织维护。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@lightPrimaryColor: #c5cae9;</span><br><span class="line">@textPrimaryColor: #fff;</span><br><span class="line">@accentColor: rgb(99, 137, 185);</span><br><span class="line">@primaryTextColor: #646464;</span><br><span class="line">@secondaryTextColor: #000;</span><br><span class="line">@dividerColor: #b6b6b6;</span><br><span class="line">@borderColor: #dadada;</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.选择器变量</strong></p>
-<p>让 选择器 变成 动态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">@mySelector: #wrap;</span><br><span class="line">@Wrap: wrap;</span><br><span class="line">@&#123;mySelector&#125;&#123; //变量名 必须使用大括号包裹</span><br><span class="line">  color: #999;</span><br><span class="line">  width: 50%;</span><br><span class="line">&#125;</span><br><span class="line">.@&#123;Wrap&#125;&#123;</span><br><span class="line">  color:#ccc;</span><br><span class="line">&#125;</span><br><span class="line">#@&#123;Wrap&#125;&#123;</span><br><span class="line">  color:#666;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#wrap&#123;</span><br><span class="line">  color: #999;</span><br><span class="line">  width: 50%;</span><br><span class="line">&#125;</span><br><span class="line">.wrap&#123;</span><br><span class="line">  color:#ccc;</span><br><span class="line">&#125;</span><br><span class="line">#wrap&#123;</span><br><span class="line">  color:#666;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>3.属性变量</strong></p>
-<p>可减少代码书写量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">@borderStyle: border-style;</span><br><span class="line">@Soild:solid;</span><br><span class="line">#wrap&#123;</span><br><span class="line">  @&#123;borderStyle&#125;: @Soild;//变量名 必须使用大括号包裹</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#wrap&#123;</span><br><span class="line">  border-style:solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>4.url 变量</strong></p>
-<p>项目结构改变时，修改其变量即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">@images: &quot;../img&quot;;//需要加引号</span><br><span class="line">body &#123;</span><br><span class="line">  background: url(&quot;@&#123;images&#125;/dog.png&quot;);//变量名 必须使用大括号包裹</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">body &#123;</span><br><span class="line">  background: url(&quot;../img/dog.png&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>5.声明变量</strong></p>
-<p>有点类似于 下面的 混合方法</p>
-<ul>
-<li>结构: @name: { 属性: 值 ;};</li>
-<li>使用：@name();<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">@background: &#123;background:red;&#125;;</span><br><span class="line">#main&#123;</span><br><span class="line">    @background();</span><br><span class="line">&#125;</span><br><span class="line">@Rules:&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    border: solid 1px red;</span><br><span class="line">&#125;;</span><br><span class="line">#con&#123;</span><br><span class="line">  @Rules();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#main&#123;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">#con&#123;</span><br><span class="line">  width: 200px;</span><br><span class="line">  height: 200px;</span><br><span class="line">  border: solid 1px red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>6.变量运算</strong></p>
-<p>不得不提的是，Less 的变量运算完全超出我的期望，十分强大。</p>
-<ul>
-<li>加减法时 以第一个数据的单位为基准</li>
-<li>乘除法时 注意单位一定要统一<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">@width:300px;</span><br><span class="line">@color:#222;</span><br><span class="line">#wrap&#123;</span><br><span class="line">  width:@width-20;</span><br><span class="line">  height:@width-20*5;</span><br><span class="line">  margin:(@width-20)*5;</span><br><span class="line">  color:@color*2;</span><br><span class="line">  background-color:@color + #111;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#wrap&#123;</span><br><span class="line">  width:280px;</span><br><span class="line">  height:200px;</span><br><span class="line">  margin:1400px;</span><br><span class="line">  color:#444;</span><br><span class="line">  background-color:#333;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>7.变量作用域</strong></p>
-<p>一句话理解就是：<strong>就近原则</strong>，不要跟我提闭包。<br><em>借助官网的Demo</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">@var: @a;</span><br><span class="line">@a: 100%;</span><br><span class="line">#wrap &#123;</span><br><span class="line">  width: @var;</span><br><span class="line">  @a: 9%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#wrap &#123;</span><br><span class="line">  width: 9%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>8.用变量去定义变量</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">@fnord:  &quot;I am fnord.&quot;;</span><br><span class="line">@var:    &quot;fnord&quot;;</span><br><span class="line">#wrap::after&#123;</span><br><span class="line">  content: @@var; //将@var替换为其值 content:@fnord;</span><br><span class="line">&#125;</span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#wrap::after&#123;</span><br><span class="line">  content: &quot;I am fnord.&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><p><strong>1.&amp; 的妙用</strong></p>
-<p>&amp; ：代表的上一层选择器的名字，此例便是header。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">#header&#123;</span><br><span class="line">  &amp;:after&#123;</span><br><span class="line">    content:&quot;Less is more!&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  .title&#123;</span><br><span class="line">    font-weight:bold;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;_content&#123;//理解方式：直接把 &amp; 替换成 #header</span><br><span class="line">    margin:20px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#header::after&#123;</span><br><span class="line">  content:&quot;Less is more!&quot;;</span><br><span class="line">&#125;</span><br><span class="line">#header .title&#123; //嵌套了</span><br><span class="line">  font-weight:bold;</span><br><span class="line">&#125;</span><br><span class="line">#header_content&#123;//没有嵌套！</span><br><span class="line">    margin:20px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.媒体查询</strong></p>
-<p>在以往的工作中，我们使用 媒体查询，都要把一个元素 分开写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#wrap&#123;</span><br><span class="line">  width:500px;</span><br><span class="line">&#125;</span><br><span class="line">@media screen and (max-width:768px)&#123;</span><br><span class="line">  #wrap&#123;</span><br><span class="line">    width:100px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">Less 提供了一个十分便捷的方式</span><br><span class="line">/* Less */</span><br><span class="line">#main&#123;</span><br><span class="line">    //something...</span><br><span class="line"></span><br><span class="line">    @media screen&#123;</span><br><span class="line">        @media (max-width:768px)&#123;</span><br><span class="line">          width:100px;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @media tv &#123;</span><br><span class="line">      width:2000px;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">@media screen and (maxwidth:768px)&#123;</span><br><span class="line">  #main&#123;</span><br><span class="line">      width:100px; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@media tv&#123;</span><br><span class="line">  #main&#123;</span><br><span class="line">    width:2000px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>唯一的缺点就是 每一个元素都会编译出自己 @media 声明，并不会合并。</p>
-<p><strong>3.实战技巧</strong></p>
-<p>可以借助 Less 在元素中，去定义自己的私有样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">#main&#123;</span><br><span class="line">  // something..</span><br><span class="line">  &amp;.show&#123;</span><br><span class="line">    display:block;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">.show&#123;</span><br><span class="line">  display:none;</span><br><span class="line">&#125;</span><br><span class="line">const main = document.getElementById(&quot;main&quot;);</span><br><span class="line">main.classList.add(&quot;show&quot;);</span><br></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#main.show&#123;</span><br><span class="line">  display:block;</span><br><span class="line">&#125;</span><br><span class="line">.show&#123;</span><br><span class="line">  display:none; //会被覆盖。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="混合方法"><a href="#混合方法" class="headerlink" title="混合方法"></a>混合方法</h3><p><strong>1.无参数方法</strong></p>
-<p>方法犹如 声明的集合，使用时 直接键入名称即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">.card &#123; // 等价于 .card()</span><br><span class="line">    background: #f6f6f6;</span><br><span class="line">    -webkit-box-shadow: 0 1px 2px rgba(151, 151, 151, .58);</span><br><span class="line">    box-shadow: 0 1px 2px rgba(151, 151, 151, .58);</span><br><span class="line">&#125;</span><br><span class="line">#wrap&#123;</span><br><span class="line">  .card;//等价于.card();</span><br><span class="line">&#125;</span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#wrap&#123;</span><br><span class="line">  background: #f6f6f6;</span><br><span class="line">  -webkit-box-shadow: 0 1px 2px rgba(151, 151, 151, .58);</span><br><span class="line">  box-shadow: 0 1px 2px rgba(151, 151, 151, .58);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>其中 .card 与 .card() 是等价的。<br>个人建议，为了避免 代码混淆，应写成 :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.card()&#123;</span><br><span class="line">  //something...</span><br><span class="line">&#125;</span><br><span class="line">#wrap&#123;</span><br><span class="line">  .card();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>要点：</p>
-<ul>
-<li>. 与 # 皆可作为 方法前缀。</li>
-<li>方法后写不写 () 看个人习惯。</li>
-</ul>
-<p><strong>2.默认参数方法</strong></p>
-<ul>
-<li>Less 可以使用默认参数，如果 没有传参数，那么将使用默认参数。</li>
-<li>@arguments 犹如 JS 中的 arguments 指代的是 全部参数。</li>
-<li>传的参数中 必须带着单位。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">.border(@a:10px,@b:50px,@c:30px,@color:#000)&#123;</span><br><span class="line">    border:solid 1px @color;</span><br><span class="line">    box-shadow: @arguments;//指代的是 全部参数</span><br><span class="line">&#125;</span><br><span class="line">#main&#123;</span><br><span class="line">    .border(0px,5px,30px,red);//必须带着单位</span><br><span class="line">&#125;</span><br><span class="line">#wrap&#123;</span><br><span class="line">    .border(0px);</span><br><span class="line">&#125;</span><br><span class="line">#content&#123;</span><br><span class="line">  .border;//等价于 .border()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#main&#123;</span><br><span class="line">    border:solid 1px red;</span><br><span class="line">    box-shadow:0px,5px,30px,red;</span><br><span class="line">&#125;</span><br><span class="line">#wrap&#123;</span><br><span class="line">    border:solid 1px #000;</span><br><span class="line">    box-shadow: 0px 50px 30px #000;</span><br><span class="line">&#125;</span><br><span class="line">#content&#123;</span><br><span class="line">    border:solid 1px #000;</span><br><span class="line">    box-shadow: 10px 50px 30px #000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>3.方法的匹配模式</strong></p>
-<p>与 面向对象中的多态 很相似<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">.triangle(top,@width:20px,@color:#000)&#123;</span><br><span class="line">    border-color:transparent  transparent @color transparent ;</span><br><span class="line">&#125;</span><br><span class="line">.triangle(right,@width:20px,@color:#000)&#123;</span><br><span class="line">    border-color:transparent @color transparent  transparent ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.triangle(bottom,@width:20px,@color:#000)&#123;</span><br><span class="line">    border-color:@color transparent  transparent  transparent ;</span><br><span class="line">&#125;</span><br><span class="line">.triangle(left,@width:20px,@color:#000)&#123;</span><br><span class="line">    border-color:transparent  transparent  transparent @color;</span><br><span class="line">&#125;</span><br><span class="line">.triangle(@_,@width:20px,@color:#000)&#123;</span><br><span class="line">    border-style: solid;</span><br><span class="line">    border-width: @width;</span><br><span class="line">&#125;</span><br><span class="line">#main&#123;</span><br><span class="line">    .triangle(left, 50px, #999)</span><br><span class="line">&#125;</span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#main&#123;</span><br><span class="line">  border-color:transparent  transparent  transparent #999;</span><br><span class="line">  border-style: solid;</span><br><span class="line">  border-width: 50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>要点</p>
-<ul>
-<li>第一个参数 left 要会找到方法中匹配程度最高的，如果匹配程度相同，将全部选择，并存在着样式覆盖替换。</li>
-<li>如果匹配的参数 是变量，则将会匹配，如 @_ 。</li>
-</ul>
-<p><strong>4.方法的命名空间</strong></p>
-<p>让方法更加规范<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">#card()&#123;</span><br><span class="line">    background: #723232;</span><br><span class="line">    .d(@w:300px)&#123;</span><br><span class="line">        width: @w;</span><br><span class="line">        </span><br><span class="line">        #a(@h:300px)&#123;</span><br><span class="line">            height: @h;//可以使用上一层传进来的方法</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">#wrap&#123;</span><br><span class="line">    #card &gt; .d &gt; #a(100px); // 父元素不能加 括号</span><br><span class="line">&#125;</span><br><span class="line">#main&#123;</span><br><span class="line">    #card .d();</span><br><span class="line">&#125;</span><br><span class="line">#con&#123;</span><br><span class="line">    //不得单独使用命名空间的方法</span><br><span class="line">    //.d() 如果前面没有引入命名空间 #card ，将会报错</span><br><span class="line">    </span><br><span class="line">    #card; // 等价于 #card();</span><br><span class="line">    .d(20px); //必须先引入 #card</span><br><span class="line">&#125;</span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#wrap&#123;</span><br><span class="line">  height:100px;</span><br><span class="line">&#125;</span><br><span class="line">#main&#123;</span><br><span class="line">  width:300px;</span><br><span class="line">&#125;</span><br><span class="line">#con&#123;</span><br><span class="line">  width:20px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>要点</p>
-<ul>
-<li>在 CSS 中&gt; 选择器，选择的是 儿子元素，就是 必须与父元素 有直接血源的元素。</li>
-<li>在引入命令空间时，如使用 &gt; 选择器，父元素不能加 括号。</li>
-<li>不得单独使用命名空间的方法 必须先引入命名空间，才能使用 其中方法。</li>
-<li>子方法 可以使用上一层传进来的方法</li>
-</ul>
-<p><strong>5.方法的条件筛选</strong></p>
-<p>Less 没有 if else，可是它有 when<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">#card&#123;</span><br><span class="line">    </span><br><span class="line">    // and 运算符 ，相当于 与运算 &amp;&amp;，必须条件全部符合才会执行</span><br><span class="line">    .border(@width,@color,@style) when (@width&gt;100px) and(@color=#999)&#123;</span><br><span class="line">        border:@style @color @width;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // not 运算符，相当于 非运算 !，条件为 不符合才会执行</span><br><span class="line">    .background(@color) when not (@color&gt;=#222)&#123;</span><br><span class="line">        background:@color;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // , 逗号分隔符：相当于 或运算 ||，只要有一个符合条件就会执行</span><br><span class="line">    .font(@size:20px) when (@size&gt;50px) , (@size&lt;100px)&#123;</span><br><span class="line">        font-size: @size;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">#main&#123;</span><br><span class="line">    #card&gt;.border(200px,#999,solid);</span><br><span class="line">    #card .background(#111);</span><br><span class="line">    #card &gt; .font(40px);</span><br><span class="line">&#125;</span><br><span class="line">/* 生成后的 CSS */</span><br><span class="line">#main&#123;</span><br><span class="line">  border:solid #999 200px;</span><br><span class="line">  background:#111;</span><br><span class="line">  font-size:40px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>要点</p>
-<ul>
-<li>比较运算有： &gt; &gt;= = =&lt; &lt;。</li>
-<li>= 代表的是等于</li>
-<li>除去关键字 true 以外的值都被视为 false：</li>
-</ul>
-<p><strong>6.数量不定的参数</strong></p>
-<p>如果你希望你的方法接受数量不定的参数，你可以使用… ，犹如 ES6 的扩展运算符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">.boxShadow(...)&#123;</span><br><span class="line">    box-shadow: @arguments;</span><br><span class="line">&#125;</span><br><span class="line">.textShadow(@a,...)&#123;</span><br><span class="line">    text-shadow: @arguments;</span><br><span class="line">&#125;</span><br><span class="line">#main&#123;</span><br><span class="line">    .boxShadow(1px,4px,30px,red);</span><br><span class="line">    .textShadow(1px,4px,30px,red);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成后的 CSS */</span><br><span class="line">#main&#123;</span><br><span class="line">  box-shadow: 1px 4px 30px red;</span><br><span class="line">  text-shadow: 1px 4px 30px red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>7.方法使用important！</strong></p>
-<p>使用方法 非常简单，在方法名后 加上关键字即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">.border&#123;</span><br><span class="line">    border: solid 1px red;</span><br><span class="line">    margin: 50px;</span><br><span class="line">&#125;</span><br><span class="line">#main&#123;</span><br><span class="line">    .border() !important;</span><br><span class="line">&#125;</span><br><span class="line">/* 生成后的 CSS */</span><br><span class="line">#main &#123;</span><br><span class="line">    border: solid 1px red !important;</span><br><span class="line">    margin: 50px !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>8.循环方法</strong></p>
-<p>Less 并没有提供 for 循环功能，但这也难不倒 聪明的程序员，使用递归去实现。<br>下面是官网中的一个 Demo，模拟了生成栅格系统。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">.generate-columns(4);</span><br><span class="line"></span><br><span class="line">.generate-columns(@n, @i: 1) when (@i =&lt; @n) &#123;</span><br><span class="line">  .column-@&#123;i&#125; &#123;</span><br><span class="line">    width: (@i * 100% / @n);</span><br><span class="line">  &#125;</span><br><span class="line">  .generate-columns(@n, (@i + 1));</span><br><span class="line">&#125;</span><br><span class="line">/* 生成后的 CSS */</span><br><span class="line">.column-1 &#123;</span><br><span class="line">  width: 25%;</span><br><span class="line">&#125;</span><br><span class="line">.column-2 &#123;</span><br><span class="line">  width: 50%;</span><br><span class="line">&#125;</span><br><span class="line">.column-3 &#123;</span><br><span class="line">  width: 75%;</span><br><span class="line">&#125;</span><br><span class="line">.column-4 &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>属性拼接方法<br>+_ 代表的是 空格；+ 代表的是 逗号。</p>
-<ul>
-<li><p>逗号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">.boxShadow() &#123;</span><br><span class="line">    box-shadow+: inset 0 0 10px #555;</span><br><span class="line">&#125;</span><br><span class="line">.main &#123;</span><br><span class="line">  .boxShadow();</span><br><span class="line">  box-shadow+: 0 0 20px black;</span><br><span class="line">&#125;</span><br><span class="line">/* 生成后的 CSS */</span><br><span class="line">.main &#123;</span><br><span class="line">  box-shadow: inset 0 0 10px #555, 0 0 20px black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>空格</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">.Animation() &#123;</span><br><span class="line">  transform+_: scale(2);</span><br><span class="line">&#125;</span><br><span class="line">.main &#123;</span><br><span class="line">  .Animation();</span><br><span class="line">  transform+_: rotate(15deg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">.main &#123;</span><br><span class="line">  transform: scale(2) rotate(15deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>10.实战技巧</strong></p>
-<p>下面是官网中的一个非常赞的 Demo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">.average(@x, @y) &#123;</span><br><span class="line">  @average: ((@x + @y) / 2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div &#123;</span><br><span class="line">  .average(16px, 50px); // 调用 方法</span><br><span class="line">  padding: @average;    // 使用返回值</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">div &#123;</span><br><span class="line">  padding: 33px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>可以说 Less 是一门优雅编程语言。</p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>extend 是 Less 的一个伪类。它可继承 所匹配声明中的全部样式。</p>
-<p><strong>1.extend 关键字的使用</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">.animation&#123;</span><br><span class="line">    transition: all .3s ease-out;</span><br><span class="line">    .hide&#123;</span><br><span class="line">      transform:scale(0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">#main&#123;</span><br><span class="line">    &amp;:extend(.animation);</span><br><span class="line">&#125;</span><br><span class="line">#con&#123;</span><br><span class="line">    &amp;:extend(.animation .hide);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成后的 CSS */</span><br><span class="line">.animation,#main&#123;</span><br><span class="line">  transition: all .3s ease-out;</span><br><span class="line">&#125;</span><br><span class="line">.animation .hide , #con&#123;</span><br><span class="line">    transform:scale(0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">all 全局搜索替换</span><br><span class="line">使用选择器匹配到的 全部声明。</span><br><span class="line">/* Less */</span><br><span class="line">#main&#123;</span><br><span class="line">  width: 200px;</span><br><span class="line">&#125;</span><br><span class="line">#main &#123;</span><br><span class="line">  &amp;:after &#123;</span><br><span class="line">    content:&quot;Less is good!&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">#wrap:extend(#main all) &#123;&#125;</span><br><span class="line"></span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#main,#wrap&#123;</span><br><span class="line">  width: 200px;</span><br><span class="line">&#125;</span><br><span class="line">#main:after, #wrap:after &#123;</span><br><span class="line">    content: &quot;Less is good!&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.减少代码的重复性</strong></p>
-<p>从表面 看来，extend 与 方法 最大的差别，就是 extend 是同个选择器共用同一个声明，而 方法 是使用自己的声明，这无疑 增加了代码的重复性。<br>方法示例 与上面的 extend 进行对比：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">.Method&#123;</span><br><span class="line">  width: 200px;</span><br><span class="line">  &amp;:after &#123;</span><br><span class="line">      content:&quot;Less is good!&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">#main&#123;</span><br><span class="line">  .Method;</span><br><span class="line">&#125;</span><br><span class="line">#wrap&#123;</span><br><span class="line">  .Method;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成的 CSS */</span><br><span class="line">#main&#123;</span><br><span class="line">  width: 200px;</span><br><span class="line">  &amp;:after&#123;</span><br><span class="line">    content:&quot;Less is good!&quot;;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br><span class="line">#wrap&#123;</span><br><span class="line">  width: 200px;</span><br><span class="line">  &amp;:after&#123;</span><br><span class="line">    content:&quot;Less is good!&quot;;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>4.要点</strong></p>
-<p><em>翻译官网</em></p>
-<ul>
-<li>选择器和扩展之间 是允许有空格的：pre:hover :extend(div pre).</li>
-<li>可以有多个扩展: pre:hover:extend(div pre):extend(.bucket tr) - 注意这与 pre:hover:extend(div pre, .bucket tr)一样。</li>
-<li>这是不可以的，扩展必须在最后 : pre:hover:extend(div pre).nth-child(odd)。</li>
-<li>如果一个规则集包含多个选择器，所有选择器都可以使用extend关键字。</li>
-</ul>
-<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><p><strong>1.导入 less 文件 可省略后缀</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &quot;main&quot;; </span><br><span class="line">//等价于</span><br><span class="line">import &quot;main.less&quot;;</span><br></pre></td></tr></table></figure>
-<p><strong>2.@import 的位置可随意放置</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#main&#123;</span><br><span class="line">  font-size:15px;</span><br><span class="line">&#125;</span><br><span class="line">@import &quot;style&quot;;</span><br></pre></td></tr></table></figure>
-<p><strong>5.reference</strong></p>
-<p>Less 中 最强大的特性<br>使用 引入的 Less 文件，但不会 编译它。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">@import (reference) &quot;bootstrap.less&quot;; </span><br><span class="line"></span><br><span class="line">#wrap:extend(.navbar all)&#123;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>翻译官网：</p>
-<blockquote>
-<p>使用@import (reference)导入外部文件，但不会添加 把导入的文件 编译到最终输出中，只引用。</p>
-</blockquote>
-<p><strong>6.once</strong></p>
-<blockquote>
-<p>@import语句的默认行为。这表明相同的文件只会被导入一次，而随后的导入文件的重复代码都不会解析。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@import (once) &quot;foo.less&quot;;</span><br><span class="line">@import (once) &quot;foo.less&quot;; // this statement will be ignored</span><br></pre></td></tr></table></figure>
-<p><strong>7.multiple</strong></p>
-<blockquote>
-<p>使用@import (multiple)允许导入多个同名文件。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line"></span><br><span class="line">// file: foo.less</span><br><span class="line">.a &#123;</span><br><span class="line">  color: green;</span><br><span class="line">&#125;</span><br><span class="line">// file: main.less</span><br><span class="line">@import (multiple) &quot;foo.less&quot;;</span><br><span class="line">@import (multiple) &quot;foo.less&quot;;</span><br><span class="line"></span><br><span class="line">/* 生成后的 CSS */</span><br><span class="line">.a &#123;</span><br><span class="line">  color: green;</span><br><span class="line">&#125;</span><br><span class="line">.a &#123;</span><br><span class="line">  color: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p><strong>1.判断类型</strong></p>
-<ul>
-<li>isnumber</li>
-</ul>
-<blockquote>
-<p>判断给定的值 是否 是一个数字。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">isnumber(#ff0);     // false</span><br><span class="line">isnumber(blue);     // false</span><br><span class="line">isnumber(&quot;string&quot;); // false</span><br><span class="line">isnumber(1234);     // true</span><br><span class="line">isnumber(56px);     // true</span><br><span class="line">isnumber(7.8%);     // true</span><br><span class="line">isnumber(keyword);  // false</span><br><span class="line">isnumber(url(...)); // false</span><br></pre></td></tr></table></figure>
-<ul>
-<li>iscolor</li>
-</ul>
-<blockquote>
-<p>判断给定的值 是否 是一个颜色。</p>
-</blockquote>
-<ul>
-<li>isurl</li>
-</ul>
-<blockquote>
-<p>判断给定的值 是否 是一个 url 。</p>
-</blockquote>
-<p><strong>2.颜色操作</strong></p>
-<ul>
-<li>saturate</li>
-</ul>
-<blockquote>
-<p>增加一定数值的颜色饱和度。</p>
-</blockquote>
-<ul>
-<li>lighten</li>
-</ul>
-<blockquote>
-<p>增加一定数值的颜色亮度。</p>
-</blockquote>
-<ul>
-<li>darken</li>
-</ul>
-<blockquote>
-<p>降低一定数值的颜色亮度。</p>
-</blockquote>
-<ul>
-<li>fade</li>
-</ul>
-<blockquote>
-<p>给颜色设定一定数值的透明度。</p>
-</blockquote>
-<ul>
-<li>mix</li>
-</ul>
-<blockquote>
-<p>根据比例混合两种颜色。</p>
-</blockquote>
-<p><strong>3.数学函数</strong></p>
-<ul>
-<li>ceil</li>
-</ul>
-<blockquote>
-<p>向上取整。</p>
-</blockquote>
-<ul>
-<li>floor</li>
-</ul>
-<blockquote>
-<p>向下取整。</p>
-</blockquote>
-<ul>
-<li>percentage</li>
-</ul>
-<blockquote>
-<p>将浮点数转换为百分比字符串。</p>
-</blockquote>
-<ul>
-<li>round</li>
-</ul>
-<blockquote>
-<p>四舍五入。</p>
-</blockquote>
-<ul>
-<li>sqrt</li>
-</ul>
-<blockquote>
-<p>计算一个数的平方根。</p>
-</blockquote>
-<ul>
-<li>abs</li>
-</ul>
-<blockquote>
-<p>计算数字的绝对值，原样保持单位。</p>
-</blockquote>
-<ul>
-<li>pow</li>
-</ul>
-<blockquote>
-<p>计算一个数的乘方。</p>
-</blockquote>
-<p>由于 文章 篇幅有限，所以 只能介绍一些 使用效率高的函数。<br>如果你想了解更多，可以去官网的<a href="http://lesscss.cn/functions/" target="_blank" rel="noopener">函数链接</a></p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><strong>1.注释</strong></p>
-<ul>
-<li>/<em> </em>/ CSS原生注释，会被编译在 CSS 文件中。</li>
-<li>/   / Less提供的一种注释，不会被编译在 CSS 文件中。</li>
-</ul>
-<p><strong>2.避免编译</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">#main&#123;</span><br><span class="line">  width:~&apos;calc(300px-30px)&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 生成后的 CSS */</span><br><span class="line">#main&#123;</span><br><span class="line">  width:calc(300px-30px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>结构： ~’ 值 ‘</p>
-<p><strong>3.变量拼串</strong></p>
-<p>在平时工作中，这种需求 太常见了。<br>在下面例子中， 实现了不同的 transtion-delay、animation、@keyframes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">.judge(@i) when(@i=1)&#123;</span><br><span class="line">  @size:15px;</span><br><span class="line">&#125;</span><br><span class="line">.judge(@i) when(@i&gt;1)&#123;</span><br><span class="line">  @size:16px;</span><br><span class="line">&#125;</span><br><span class="line">.loopAnimation(@i) when (@i&lt;16) &#123;</span><br><span class="line">  </span><br><span class="line">  .circle:nth-child(@&#123;i&#125;)&#123;</span><br><span class="line">      .judeg(@i);</span><br><span class="line">      border-radius:@size @size 0 0;</span><br><span class="line">      animation: ~&quot;circle-@&#123;i&#125;&quot; @duration infinite @ease;</span><br><span class="line">      transition-delay:~&quot;@&#123;i&#125;ms&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  @keyframes ~&quot;circle-@&#123;i&#125;&quot; &#123;</span><br><span class="line">      // do something...</span><br><span class="line">  &#125;</span><br><span class="line">  .loopAnimation(@i + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>结构： ~”字符@{变量}字符”;</p>
-<p><strong>4.使用 JS</strong></p>
-<p>因为 Less 是由 JS 编写，所以 Less 有一得天独厚的特性：代码中使用 Javascript 。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/* Less */</span><br><span class="line">@content:`&quot;aaa&quot;.toUpperCase()`;</span><br><span class="line">#randomColor&#123;</span><br><span class="line">  @randomColor: ~&quot;rgb(`Math.round(Math.random() * 256)`,`Math.round(Math.random() * 256)`,`Math.round(Math.random() * 256)`)&quot;;</span><br><span class="line">&#125;</span><br><span class="line">#wrap&#123;</span><br><span class="line">  width: ~&quot;`Math.round(Math.random() * 100)`px&quot;;</span><br><span class="line">  &amp;:after&#123;</span><br><span class="line">      content:@content;</span><br><span class="line">  &#125;</span><br><span class="line">  height: ~&quot;`window.innerHeight`px&quot;;</span><br><span class="line">  alert:~&quot;`alert(1)`&quot;;</span><br><span class="line">  #randomColor();</span><br><span class="line">  background-color: @randomColor;</span><br><span class="line">&#125;</span><br><span class="line">/* 生成后的 CSS */</span><br><span class="line"></span><br><span class="line">// 弹出 1</span><br><span class="line">#wrap&#123;</span><br><span class="line">  width: 随机值（0~100）px;</span><br><span class="line">  height: 743px;//由电脑而异</span><br><span class="line">  background: 随机颜色;</span><br><span class="line">&#125;</span><br><span class="line">#wrap::after&#123;</span><br><span class="line">  content:&quot;AAA&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>前几个月 ， 有个 CSS in JS 的概念非常火，现在 看来 JS in CSS 也未曾不可。<br>我觉得完全可以根据 Less 这个特性来造个轮子，JS来控制 CSS ，形成 动态属性，如果成功 很可能会改变 现在前端的打开姿势。<br>结束语<br>从我学习 Web 以来，无数前辈告诉我，Web 有三大基石，JS 控制行为，HTML 控制结构，CSS 控制样式。我一直再想 为什么要分为 3 个语言？为什么不能合成一个语言？或者说 就没有更合适的吗？在这几年的 Web 发展中，页面从 MVC  到 现在的 MVVC，结构正在发生着改变，但 其根本 不过是造了一个又一个 完美的轮子。我们为什么就不能打破传统呢？让 前端的 三大基石 变成一座大山呢 ？<br>请试想一下，那该是个怎样的世界。</p>
-<p>我叫 Simon ， 来自北方，以上便是 Less 的特性总结，希望本文能对你有所帮助。<br>（完）</p>
-
-          
+          <p>作为前端学习者的我们 或多或少都要学些 CSS ，它作为前端开发的三大基石之一，时刻引领着 Web 的发展潮向。 而 CSS 作为一门标记性语言，可能 给初学者第一印象 就是简单易懂，毫无逻辑，不像编程该有的样子。在语法更新时，每当新属性提出，浏览器的兼容又会马上变成绊脚石，可以说 CSS 短板不容忽视。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/27/学习less/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1158,15 +720,17 @@
 
       
         
-          
-            <h3 id="常见Git命令"><a href="#常见Git命令" class="headerlink" title="常见Git命令"></a>常见Git命令</h3><p>git branck <branckname> 新建分支<br>git checkout -b <branchname> 切换分支并新建<br>git push origin <branchname> 提交代码到远程分支<br>git pull 迁代码<br>git push –set-upstream origin <branchname> 关联并push到远程分支<br>git branch -D <branchname> 删除本地分支<br>git push origin –delete <branchname> 删除远程分支<br>git push origin –delete tag <tagname> 删除tag<br>git log 列出commit<br>git reset –hard <commit hash> 回滚到某一次commit<br>git checkout master 切换到主分支<br>git merge <branchname> 合并分支到当前分支<br>git rebase <branchname> 衍和分支到当前分支<br>git status 查看冲突文件<br>git add / commit / push<br>git rebase –continue 提交更改 分支衍合不会保留合并的日志</branchname></branchname></commit></tagname></branchname></branchname></branchname></branchname></branchname></branckname></p>
-<h3 id="分支作用"><a href="#分支作用" class="headerlink" title="分支作用"></a>分支作用</h3><p>master负责发版用的<br>新功能开发完是合并到develop分支上<br>测试完成合并回master分支并发版<br>起新功能新版本是基于develop分支新建一个feature分支开发<br>开发完成合并回develop分支<br><a href="https://github.com/oldratlee/translations/blob/master/git-workflows-and-tutorials/README.md" target="_blank" rel="noopener">Git工作流</a><br><a href="https://github.com/oldratlee/translations/blob/master/git-workflows-and-tutorials/workflow-gitflow.md" target="_blank" rel="noopener">Gitflow工作流</a></p>
-<p>modules模块：包含业务逻辑，与页面一一对应。由一个或多个Component组成<br>components组件：与业务逻辑分离的公共组件</p>
-
-          
+          <h3 id="常见Git命令"><a href="#常见Git命令" class="headerlink" title="常见Git命令"></a>常见Git命令</h3><p>git branck <branckname> 新建分支<br>git checkout -b <branchname> 切换分支并新建<br>git push origin <branchname> 提交代码到远程分支<br>git pull 迁代码<br>git push –set-upstream origin <branchname> 关联并push到远程分支<br>git branch -D <branchname> 删除本地分支<br>git push origin –delete <branchname> 删除远程分支<br>git push origin –delete tag <tagname> 删除tag<br>git log 列出commit<br>git reset –hard <commit hash> 回滚到某一次commit<br>git checkout master 切换到主分支<br>git merge <branchname> 合并分支到当前分支<br>git rebase <branchname> 衍和分支到当前分支<br>git status 查看冲突文件<br>git add / commit / push<br>git rebase –continue 提交更改 分支衍合不会保留合并的日志<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/26/笔记整理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </branchname></branchname></commit></tagname></branchname></branchname></branchname></branchname></branchname></branckname></p></div>
     
     
     
@@ -1280,154 +844,17 @@
 
       
         
-          
-            <p>转载自 <a href="https://juejin.im/post/5a29f794f265da4310484a1b" target="_blank" rel="noopener">掘金：大表妹吖（写给新人的React快速入门手册）</a></p>
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>React组件分为三种写法：</p>
-<p><strong>1.ES6的class语法，继承React.Component类实现带有完整生命周期的组件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">export default class exComponent extends Component &#123;</span><br><span class="line">  /*</span><br><span class="line">    包含一些生命周期函数、内部函数以及变量等</span><br><span class="line">  */</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (&lt;div&gt;&#123;/**/&#125;&lt;/div&gt;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.无状态组件（函数式组件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const exComponent = (props) =&gt; (</span><br><span class="line">  &lt;div&gt;&#123;props.value&#125;&lt;/div&gt;</span><br><span class="line">);</span><br><span class="line">export default exComponent;</span><br></pre></td></tr></table></figure></p>
-<p><strong>3.高阶组件(严格来说高阶组件只是用来包装以上两种组件的一个高阶函数)</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const HighOrderComponent = (WrappedComponent) =&gt; &#123;</span><br><span class="line">  class Hoc extends Component &#123;</span><br><span class="line">    /*包含一些生命周期函数*/</span><br><span class="line">    render() &#123;</span><br><span class="line">      return (&lt;WrappedComponent &#123;...this.props&#125; /&gt;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return Hoc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>高阶组件的原理是接受一个组件并返回一个包装后的组件，可以在返回的组件里插入一些生命周期函数做相应的操作，高阶组件可以使被包装的组件逻辑不受干扰从外部进行一些扩展</p>
-<h3 id="props和state"><a href="#props和state" class="headerlink" title="props和state"></a>props和state</h3><p>react中组件自身的状态叫做state,在es6+的类组件中可以使用很简单的语法进行初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">export default class Xxx extends Component &#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    name: &apos;sakura&apos;,</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; name &#125; = this.state;</span><br><span class="line">    return (&lt;div&gt;&#123;name&#125;&lt;/div&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>state可以赋值给某个标签，<strong>如果需要更新state可以调用this.setState()传入一个对象</strong>，通过这个方法修改state之后绑定了相应值的元素也会触发渲染，这就是简单的数据绑定</p>
-<p>不能通过this.state.name = ‘xxx’的方式修改state，这样就会失去更新state同时相应元素改变的效果</p>
-<p>setState函数是react中较为重要也是使用频率较高的一个api，它接受最多两个参数，第一个参数是要修改的state对象，第二个参数为一个回调函数，会在state更新操作完成后自动调用，所以setState函数是异步的。<br>调用this.setState之后react并没有立刻更新state，而是将几次连续调用setState返回的对象合并到一起，以提高性能,并且因为setState是异步的，所以不能在调用之后立马获取新的state，如果要用只能给setState传入第二个参数回调函数来获取</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*省略部分代码*/</span><br><span class="line">this.setState(&#123;</span><br><span class="line">  value: 11,</span><br><span class="line">&#125;, () =&gt; &#123;</span><br><span class="line">  const &#123; value &#125; = this.state;</span><br><span class="line">  console.log(value);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>props是由父元素所传递给给子元素的一个属性对象，用法通常像这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Parent extends Component &#123;</span><br><span class="line">  /*父组件的state中保存了一个value*/</span><br><span class="line">  state = &#123;</span><br><span class="line">    value: 0,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  handleIncrease = () =&gt; &#123;</span><br><span class="line">    const &#123; value &#125; = this.state;</span><br><span class="line">    this.setState(&#123; value: value + 1 &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; value &#125; = this.state;</span><br><span class="line">    // 通过props传递给子组件Child，并传递了一个函数，用于子组件点击后修改value</span><br><span class="line">    return (&lt;div&gt;</span><br><span class="line">      &lt;Child value=&#123;value&#125; increase=&#123;this.handleIncrease&#125; /&gt;</span><br><span class="line">    &lt;/div&gt;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 子组件通过props获取value和increase函数</span><br><span class="line">const Child = (props) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;p&gt;&#123;props.value&#125;&lt;/p&gt;</span><br><span class="line">    &lt;button onClick=&#123;props.increase&#125;&gt;click!&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p><strong>props像一个管道，父组件的状态通过props这个管道流向子组件，这个过程叫做单向数据流</strong></p>
-<p>react中修改state和props都会引起组件的重新渲染</p>
-<h3 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h3><p>生命周期是一组用来表示组件从渲染到卸载以及接收新的props以及state声明的特殊函数<br><img src="http://ovwz88un8.bkt.clouddn.com/componentLifeCycle%20.png" alt="组件的生命周期"><br>这张图展示了react几个生命周期函数执行的过程，可以简单把组件的生命周期分为三个阶段，共包含9个生命周期函数，在不同阶段组件会自动调用</p>
-<ul>
-<li><p>挂载</p>
-<ul>
-<li>componentWillMount</li>
-<li>render</li>
-<li>componentDidMount</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>更新</p>
-<ul>
-<li>componentWillReceiveProps</li>
-<li>shouldComponentUpdate</li>
-<li>componentWillUpdate</li>
-<li>render</li>
-<li>componentDidUpdate</li>
-</ul>
-</li>
-<li><p>卸载</p>
-<ul>
-<li>componentWillUnmount</li>
-</ul>
-</li>
-</ul>
-<h4 id="挂载–componentWillMount"><a href="#挂载–componentWillMount" class="headerlink" title="挂载–componentWillMount"></a>挂载–componentWillMount</h4><p>这个阶段组件准备开始渲染DOM节点，可以在这个方法里做一些请求之类的操作，但是因为组件还没有首次渲染完成，所以并不能拿到任何dom节点</p>
-<h4 id="挂载–render"><a href="#挂载–render" class="headerlink" title="挂载–render"></a>挂载–render</h4><p>正式渲染，这个方法返回需要渲染的dom节点，并且做数据绑定，这个方法里不能调用this.setState方法修改state，因为setState会触发重新渲染，导致再次调用render函数触发死循环</p>
-<h4 id="挂载–componentDidMount"><a href="#挂载–componentDidMount" class="headerlink" title="挂载–componentDidMount"></a>挂载–componentDidMount</h4><p>这个阶段组件首次渲染已经完成，可以拿到真实的DOM节点，也可以在这个方法里做一些请求操作，或者绑定事件等等</p>
-<h4 id="更新–componentWillReceiveProps"><a href="#更新–componentWillReceiveProps" class="headerlink" title="更新–componentWillReceiveProps"></a>更新–componentWillReceiveProps</h4><p>当组件收到新的props和state且还没有执行render时会自动触发这个方法，这个阶段可以拿到新的props和state，某些情况下可能需要根据旧的props和新的props对比结果做一些相关操作，可以写在这个方法里，比如一个弹窗组件的弹出状态保存在父组件的state里通过props传给自身，判断这个弹窗弹出可以这样写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Dialog extends Component &#123;</span><br><span class="line">  componentWillReveiceProps(nextProps) &#123;</span><br><span class="line">    const &#123; dialogOpen &#125; = this.props;</span><br><span class="line">    if (nextProps.dialogOpen &amp;&amp; nextProps.dialogOpen !== dialogOpen) &#123;</span><br><span class="line">      /*弹窗弹出*/</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="更新–shouldComponentUpdate"><a href="#更新–shouldComponentUpdate" class="headerlink" title="更新–shouldComponentUpdate"></a>更新–shouldComponentUpdate</h4><p>shouldComponentUpdate是一个非常重要的api。react的组件更新过程经过以上几个阶段，到达这个阶段需要确认一次组件是否真的需要根据新的状态再次渲染，确认的依据就是对比新旧状态是否有所改变，如果没有改变则返回false，后面的生命周期函数不会执行，如果发生改变则返回true，继续执行后续生命周期，而react默认就返回true<br>所以可以得出shouldComponentUpdate可以用来优化性能，可以手动实现shouldComponentUpdate函数来对比前后状态的差异，从而阻止组件不必要的重复渲染<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Demo extends Component &#123;</span><br><span class="line">  shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">    return this.props.value !== nextProps.value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这段代码是一个最简单的实现，通过判断this.props.value和nextProps.value是否相同来决定组件要不要重新渲染，但是实际项目中数据复杂多样，并不仅仅是简单的基本类型，可能有对象、数组甚至是更深嵌套的对象，而数据嵌套越深就意味着这个方法里需要做更深层次的对比，这对react性能开销是极大的，所以官方更推荐使用Immutable.js来代替原生的JavaScript对象和数组<br>由于immutablejs本身是不可变的，如果需要修改状态则返回新的对象，也正因为修改后返回了新对象，所以在shouldComponentUpdate方法里只需要对比对象的引用就很容易得出结果，并不需要做深层次的对比。但是使用immutablejs则意味着增加学习成本，所以还需要做一些取舍</p>
-<h4 id="更新–componentWillUpdate"><a href="#更新–componentWillUpdate" class="headerlink" title="更新–componentWillUpdate"></a>更新–componentWillUpdate</h4><p>这个阶段是在收到新的状态并且shouldComponentUpdate确定组件需要重新渲染而还未渲染之前自动调用的，在这个阶段依然能获取到新的props和state，是组件重新渲染前最后一次更新状态的机会</p>
-<h4 id="更新–render"><a href="#更新–render" class="headerlink" title="更新–render"></a>更新–render</h4><p>根据新的状态重新渲染</p>
-<h4 id="更新–componentDidMount"><a href="#更新–componentDidMount" class="headerlink" title="更新–componentDidMount"></a>更新–componentDidMount</h4><p>重新渲染完毕</p>
-<h4 id="卸载–componentWillmount"><a href="#卸载–componentWillmount" class="headerlink" title="卸载–componentWillmount"></a>卸载–componentWillmount</h4><p>组件被卸载之前，在这里可以清除定时器以及解除某些事件</p>
-<h3 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h3><p>很多业务场景中经常会涉及到父=&gt;子组件或者是子=&gt;父组件甚至同级组件间的通信，父=&gt;子组件通信非常简单，通过props传给子组件就可以。而子=&gt;父组件通信则是大多数初学者经常碰到的问题<br>假设有个需求，子组件是一个下拉选择菜单，父组件是一个表单，在菜单选择一项之后需要将值传给父级表单组件，这是典型的子=&gt;父组件传值的需求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">const list = [</span><br><span class="line">  &#123; name: &apos;sakura&apos;, id: &apos;x0001&apos; &#125;,</span><br><span class="line">  &#123; name: &apos;misaka&apos;, id: &apos;x0003&apos; &#125;,</span><br><span class="line">  &#123; name: &apos;mikoto&apos;, id: &apos;x0005&apos; &#125;,</span><br><span class="line">  &#123; name: &apos;react&apos;, id: &apos;x0002&apos; &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">class DropMenu extends Component &#123;</span><br><span class="line">  handleClick = (id) =&gt; &#123;</span><br><span class="line">    this.props.handleSelect(id);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    &lt;MenuWrap&gt;</span><br><span class="line">      &#123;list.map((v) =&gt; (</span><br><span class="line">        &lt;Menu key=&#123;v.name&#125; onClick=&#123;() =&gt; this.handleClick(v.id)&#125;&gt;&#123;v.name&#125;&lt;/Menu&gt;</span><br><span class="line">      ))&#125;</span><br><span class="line">    &lt;/MenuWrap&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class FormLayout extends Component &#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    selected: &apos;&apos;,</span><br><span class="line">  &#125;</span><br><span class="line">  handleMenuSelected = (id) =&gt; &#123;</span><br><span class="line">    this.setState(&#123; selected: id &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;MenuWrap handleSelect=&#123;this.handleMenuSelected&#125; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这个例子中，父组件FormLayout将一个函数传给子组件，子组件的Menu点击后调用这个函数并把值传进去，而父组件则收到了这个值，这就是简单的子=&gt;父组件通信<br>而对于更为复杂的同级甚至类似于叔侄关系的组件可以通过状态提升的方式互相通信，简单来说就是如果两个组件互不嵌套，没有父子关系，这种情况下，可以找到他们上层公用的父组件，将state存在这个父组件中，再通过props给两个组件传入相应的state以及对应的回调函数即可</p>
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>React中最常用的路由解决方案就是React-router,react-router迄今为止已经经历了四个大版本的迭代，每一版api变化较大，本文将按照最新版react-router-v4进行讲解</p>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>使用路由，要先用Router组件将App包起来，并把history对象通过props传递进去,最新版本中history被单独分出一个包，使用的时候需要先引入。对于同级组件路由的切换，需要使用Switch组件将多个Route包起来，每当路由变更，只会渲染匹配到的一个组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import ReactDOM from &apos;react-dom&apos;;</span><br><span class="line">import createHistory from &apos;history/createBrowserHistory&apos;;</span><br><span class="line">import &#123; Router &#125; from &apos;react-router&apos;;</span><br><span class="line"></span><br><span class="line">import App from &apos;./App&apos;;</span><br><span class="line"></span><br><span class="line">const history = createHistory();</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Router history=&#123;history&#125;&gt;</span><br><span class="line">    &lt;App /&gt;</span><br><span class="line">  &lt;/Router&gt;,</span><br><span class="line">  element,</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">// App.js</span><br><span class="line">//... 省略部分代码</span><br><span class="line"></span><br><span class="line">import &#123;</span><br><span class="line">  Switch, Route,</span><br><span class="line">&#125; from &apos;react-router&apos;;</span><br><span class="line"></span><br><span class="line">class App extends Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Switch&gt;</span><br><span class="line">          &lt;Route exact path=&quot;/&quot; component=&#123;Dashboard&#125; /&gt;</span><br><span class="line">          &lt;Route path=&quot;/about&quot; component=&#123;About&#125; /&gt;</span><br><span class="line">        &lt;/Switch&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="状态管理"><a href="#状态管理" class="headerlink" title="状态管理"></a>状态管理</h2><p>关于单页面应用状态管理可以先阅读民工叔这篇文章<a href="https://github.com/xufei/blog/issues/47" target="_blank" rel="noopener">单页应用的数据流方案探索</a></p>
-<p>React生态圈的状态管理方案由facebook提出的flux架构为基础，并有多种不同实现，而最为流行的两种是</p>
-<ul>
-<li>Mobx</li>
-<li>Redux<br><img src="http://ovwz88un8.bkt.clouddn.com/16033f158c902f64.png" alt="redux01"></li>
-</ul>
-<h3 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h3><blockquote>
-<p>Flux is the application architecture that Facebook uses for building client-side web applications. It complements React’s composable view components by utilizing a unidirectional data flow. It’s more of a pattern rather than a formal framework, and you can start using Flux immediately without a lot of new code.</p>
-</blockquote>
-<blockquote>
-<p>Flux是facebook用于构建web应用的一种架构，它通过使用单向数据流补充来补充React的组件，它只是一种模式，而不是一个正式的框架</p>
-</blockquote>
-<p>首先，Flux将一个应用分为三个部分：</p>
-<ul>
-<li>dispatcher</li>
-<li>stores</li>
-<li>views</li>
-</ul>
-<h4 id="dispatcher"><a href="#dispatcher" class="headerlink" title="dispatcher"></a>dispatcher</h4><p>dispatcher是管理Flux应用中所有数据流的中心枢纽，它的作用仅仅是将actions分发到stores，每一个store都监听自己并且提供一个回调函数，当用户触发某个操作时，应用中的所有store都将通过监听的回调函数来接收这个操作<br><a href="https://github.com/facebook/flux/blob/520a60c18aa3e9af59710d45cd37b9a6894a7bce/src/Dispatcher.js" target="_blank" rel="noopener">acebook官方实现的Dispatcher.js</a></p>
-<h4 id="stores"><a href="#stores" class="headerlink" title="stores"></a>stores</h4><p>stores包含应用程序的状态和逻辑，类似于传统MVC中的model，stores用于存储应用程序中特定区域范围的状态<br>一个store向dispatcher注册一个事件并提供一个回调函数，这个回调函数可以接受action作为参数，并且基于actionType来区分并解释操作。在store中提供相应的数据更新函数，在确认更新完毕后广播一个事件用于应用程序根据新的状态来更新视图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// Facebook官方实现FluxReduceStore的用法</span><br><span class="line">import &#123; ReduceStore, Dispatcher &#125; from &apos;flux&apos;;</span><br><span class="line">import Immutable from &apos;immutable&apos;;</span><br><span class="line">const dispatch = new Dispatcher();</span><br><span class="line"></span><br><span class="line">class TodoStore extends ReduceStore &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    super(dispatch);</span><br><span class="line">  &#125;</span><br><span class="line">  getInitialState() &#123;</span><br><span class="line">    return Immutable.OrderedMap();</span><br><span class="line">  &#125;</span><br><span class="line">  reduce(state, action) &#123;</span><br><span class="line">    switch(action.type) &#123;</span><br><span class="line">      case &apos;ADD_TODO&apos;:</span><br><span class="line">        return state.set(&#123;</span><br><span class="line">          id: 1000,</span><br><span class="line">          text: action.text,</span><br><span class="line">          complete: false,</span><br><span class="line">        &#125;);</span><br><span class="line">      default:</span><br><span class="line">        return state;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default new TodoStore();</span><br></pre></td></tr></table></figure>
-<h4 id="views"><a href="#views" class="headerlink" title="views"></a>views</h4><p>React提供了views所需的可组合以及可以自由的重新渲染的视图，在React最顶层组件里，通过某种粘合代码从stores中获取所需数据，并将数据通过props传递到它的子组件中，我们就可以通过控制这个顶层组件的状态来管理页面任何部分的状态<br>Facebook官方实现中有一个FluxContainer.js用于连接store与react组件，并在store更新数据后刷新组件状态更新视图。基本原理是用一个高阶组件传入Stores和组件需要的state与方法以及组件本身，返回注入了state和action方法的组件，基本用法像这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import TodoStore from &apos;./TodoStore&apos;;</span><br><span class="line">import Container from &apos;flux&apos;;</span><br><span class="line">import TodoActions from &apos;./TodoActions&apos;;</span><br><span class="line"></span><br><span class="line">// 可以有多个store</span><br><span class="line">const getStores = () =&gt; [TodoStore];</span><br><span class="line"></span><br><span class="line">const getState = () =&gt; (&#123;</span><br><span class="line">  // 状态</span><br><span class="line">  todos: TodoStore.getState(),</span><br><span class="line"></span><br><span class="line">  // action</span><br><span class="line">  onAdd: TodoActions.addTodo,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">export default Container.createFunctional(App, getStore, getState);</span><br></pre></td></tr></table></figure></p>
-<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p>Redux是由Dan Abramov对Flux架构的另一种实现，它延续了flux架构中views、store、dispatch的思想，并在这个基础上对其进行完善，将原本store中的reduce函数拆分为reducer，并将多个stores合并为一个store，使其更利于测试<br><img src="http://ovwz88un8.bkt.clouddn.com/16033fb8ab81d148.png" alt="redux02"><br><a href="https://medium.com/@dan_abramov/the-evolution-of-flux-frameworks-6c16ad26bb31" target="_blank" rel="noopener">The Evolution of Flux Frameworks</a>这篇文章，是他对原Flux架构的看法以及他的改进</p>
-<blockquote>
-<p>The first change is to have the action creators return the dispatched action.What looked like this:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export function addTodo(text) &#123;</span><br><span class="line">  AppDispatcher.dispatch(&#123;</span><br><span class="line">    type: ActionTypes.ADD_TODO,</span><br><span class="line">    text: text</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>can look like this instead:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export function addTodo(text) &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    type: ActionTypes.ADD_TODO,</span><br><span class="line">    text: text</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>stores拆分为单一store和多个reducer</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const initialState = &#123; todos: [] &#125;;</span><br><span class="line">export default function TodoStore(state = initialState, action) &#123;</span><br><span class="line">  switch (action.type) &#123;</span><br><span class="line">  case ActionTypes.ADD_TODO:</span><br><span class="line">    return &#123; todos: state.todos.concat([action.text]) &#125;;</span><br><span class="line">  default:</span><br><span class="line">    return state;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>Redux把应用分为四个部分</strong></p>
-<ul>
-<li>views</li>
-<li>action</li>
-<li>reducer</li>
-<li>store</li>
-</ul>
-<p>views可以触发一个action，reducer函数内部根据action.type的不同来对数据做相应的操作，最后返回一个新的state，store会将所有reducer返回的state组成一个state树，再通过订阅的事件函数更新给views</p>
-<h4 id="views-1"><a href="#views-1" class="headerlink" title="views"></a>views</h4><p>react组件作为应用中的视图层</p>
-<h4 id="action"><a href="#action" class="headerlink" title="action"></a>action</h4><p>action是一个简单的JavaScript对象，包含一个type属性以及action操作需要用到的参数,推荐使用actionCreator函数来返回一个action，actionCreator函数可以作为state传递给组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function singleActionCreator(payload) &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    type: &apos;SINGLE_ACTION&apos;,</span><br><span class="line">    paylaod,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h4><p>reducer是一个纯函数，简单的根据指定输入返回相应的输出，reducer函数不应该有副作用，并且最终需要返回一个state对象，对于多个reducer，可以使用combineReducer函数组合起来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function singleReducer(state = initialState, action) &#123;</span><br><span class="line">  switch(action.type) &#123;</span><br><span class="line">    case &apos;SINGLE_ACTION&apos;:</span><br><span class="line">      return &#123; ...state, value: action.paylaod &#125;;</span><br><span class="line">    default:</span><br><span class="line">      return state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function otherReducer(state = initialState, action) &#123;</span><br><span class="line">  switch(action.type) &#123;</span><br><span class="line">    case &apos;OTHER_ACTION&apos;:</span><br><span class="line">      return &#123; ...state, data: action.data &#125;;</span><br><span class="line">    default:</span><br><span class="line">      return state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const rootReducer = combineReducer([</span><br><span class="line">  singleReducer,</span><br><span class="line">  otherReducer,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure></p>
-<h4 id="store"><a href="#store" class="headerlink" title="store"></a>store</h4><p>redux中store只有一个，通过调用createStore传入reducer就可以创建一个store，并且这个store包含几个方法，分别是subscribe， dispatch，getState，以及replaceReducer，subscribe用于给state的更新注册一个回调函数，而dispatch用于手动触发一个action，getState可以获取当前的state树，replaceReducer用于替换reducer，要在react项目中使用redux，必须再结合react-redux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import &#123; connect &#125; from &apos;react-redux&apos;;</span><br><span class="line">const store = createStore(rootReducer);</span><br><span class="line"></span><br><span class="line">// App.js</span><br><span class="line">class App extends Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        test</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const mapStateToProps = (state) =&gt; (&#123;</span><br><span class="line">  vlaue: state.value,</span><br><span class="line">  data: state.data,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const mapDispatchToProps = (dispatch) =&gt; (&#123;</span><br><span class="line">  singleAction: () =&gt; dispatch(singleActionCreator());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">export default connect(mapStateToProps, mapDispatchToProps)(App);</span><br><span class="line"></span><br><span class="line">// index.js</span><br><span class="line">import &#123; Provider &#125; from &apos;react-redux&apos;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;APP /&gt;</span><br><span class="line">  &lt;/Provider&gt;,</span><br><span class="line">  element,</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p><em>HTML</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;container&quot;&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p><em>CSS</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.alert-text &#123;</span><br><span class="line">    color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><em>JS</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> var Hello = React.createClass(&#123;</span><br><span class="line">     render: function()&#123;</span><br><span class="line">         return &lt;div className=&quot;alert-text&quot; &gt;Hello&#123;this.props.name&#125;&lt;/div&gt;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;);</span><br><span class="line">// Components声明</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> React.render(&lt;Hello name=&quot;World&quot; /&gt;,document.getElementById(&apos;container&apos;));</span><br><span class="line"> // 渲染组件</span><br></pre></td></tr></table></figure></p>
-<p>Component声明：<br>    自定义的Components用<font color="red">React.createClass()</font>来创建，参数是一个JS的Object，其中最重要的K值就是render,render是一个function,function的返回值直接决定了自定义的Components被渲染出来是个什么样子的结构，其内是一个DIV element，里面是文本Hello和一个括号，括号表示我们要取这里JS表达式的值；<br>    this表示当前ReactComponents的实例；<br>    props表示我们使用ReactComponent时，在其上面添加的属性的集合；<br>    它的K值是与下面的值是一一对应的，value值就是下面写的value值</p>
-<p><font color="red">React.render()</font> 的第一个参数是要渲染的React.Components；第二个参数是Components渲染完成后要插入位置容器element</p>
-<p>CSS部分可以用行内样式：<br>行内样式用一个对象表示，且要用驼峰标识法如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">return &lt;div style=&#123;&#123;</span><br><span class="line">    color:&apos;red&apos;,</span><br><span class="line">    fontSize:&apos;44&apos;</span><br><span class="line">    &#125;&#125; &gt;Hello&#123;this.props.name&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>上面外面{}表示执行JS表达式，里面嵌套的{}是一个对象表示的行内样式</p>
-<p>或者给标签一个类名，然后修饰这个类名。</p>
-<h2 id="React-Components的生命周期"><a href="#React-Components的生命周期" class="headerlink" title="React Components的生命周期"></a>React Components的生命周期</h2><h3 id="React-Components的三种状态"><a href="#React-Components的三种状态" class="headerlink" title="React.Components的三种状态"></a>React.Components的三种状态</h3><ol>
-<li><p><em>Mounted</em> :指React.Components被render解析生成对应的DOM节点并被插入浏览器的过程。</p>
-</li>
-<li><p><em>Update</em> :指一个Mounted的React.Components被重新render的过程。（这个过程DOM节点不一定会发生改变，React会把Components当前state和之前的state对比，如果state发生改变，影响了DOM结构，才会改变DOM节点）</p>
-</li>
-<li><p><em>Unmounted</em> :指一个Mounted的Components对应的DOM节点被从DOM结构中移除的一个过程。</p>
-</li>
-</ol>
-<h3 id="三种状态对应的hook函数"><a href="#三种状态对应的hook函数" class="headerlink" title="三种状态对应的hook函数"></a>三种状态对应的hook函数</h3><p> 三种状态React都封装了对应的hook函数</p>
-<ol>
-<li><p>Mounting</p>
-<p>getDefaultProps()</p>
-<p>getInitialState()</p>
-<p>componentWillMount<br>(在Mounting之前被调用)</p>
-<p>render</p>
-<p>componentDidMount<br>（在Mounted之后被调用）</p>
-<p>Props和State<br>Props往往是通过组件调用方在调用组件的时候指定的，Props一般不会变。（专情）<br>State是当前私属于当前组件的，值是可变的。（花心）<br>修改State的值，调用setState()方法</p>
-</li>
-</ol>
-<ol start="2">
-<li><p>Updating</p>
-<p> componentWillReceiveProps<br> (当一个Mounted的Component将要接收新的Props时，这个函数会被调用；其函数参数就是新的Props对象)</p>
-<p> shouldComponentUpdate（<br> 在一个Mounted的Component已经接收到新的Props和State之后，判断是否有必要更新DOM结构，其函数参数有两个，一个是新的Props对象，第二个是新的State对象，返回true表示更新，返回flase表示不更新DOM结构）</p>
-<p> componentWillUpdate</p>
-<p> componentDidUpdate</p>
-<p> 上面四个函数我们一般很少重新</p>
-</li>
-</ol>
-<ol start="3">
-<li><p>Unmounting</p>
-<p> 当我们要把一个React Component销毁掉时，就是Unmounting阶段了；</p>
-<p> componentWillUnmount<br> (可以在这里面释放内存资源，图片资源等操作，得益于浏览器的回收机制，一般用的非常少)</p>
-</li>
-</ol>
-<h2 id="React的事件处理程序"><a href="#React的事件处理程序" class="headerlink" title="React的事件处理程序"></a>React的事件处理程序</h2>
-          
+          <p> React是Facrbook内部的一个JavaScript类库，已于1年开源，可用于创建Web用户交互界面。它引入了一种新的方式来处理浏览器DOM。你只需要声明地定义各个时间点的用户界面，而无序关系在数据变化时，需要更新哪一部分DOM。在任何时间点，React都能以最小的DOM修改来更新整个应用程序。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/04/React学习笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1541,59 +968,19 @@
 
       
         
-          
-            <p>(搬运于<a href="https://segmentfault.com/a/1190000004365693" target="_blank" rel="noopener">segmentfault</a> 作者：<a href="https://segmentfault.com/u/zach5078" target="_blank" rel="noopener">zach5078</a>)<br>这些是最常用的几个语法<code>let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments</code></p>
+          <p>(搬运于<a href="https://segmentfault.com/a/1190000004365693" target="_blank" rel="noopener">segmentfault</a> 作者：<a href="https://segmentfault.com/u/zach5078" target="_blank" rel="noopener">zach5078</a>)<br>这些是最常用的几个语法<code>let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments</code></p>
 <hr>
-<h3 id="let-const"><a href="#let-const" class="headerlink" title="let, const"></a>let, const</h3><p><code>let</code>为javaScript新增了块级作用域。用它声明的变量，只在<code>let</code>命令所在的代码块内有效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let name = &apos;zach&apos;</span><br><span class="line"></span><br><span class="line">while (true) &#123;</span><br><span class="line">    let name = &apos;obama&apos;</span><br><span class="line">    console.log(name)  //obama</span><br><span class="line">    break</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(name)  //zach</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p><code>const</code>用来声明常量。一旦声明，常量的值就不能改变。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const PI = Math.PI</span><br><span class="line"></span><br><span class="line">PI = 23 //Module build failed: SyntaxError: /es6/app.js: &quot;PI&quot; is read-only</span><br></pre></td></tr></table></figure></p>
-<p>当我们尝试去改变用const声明的常量时，浏览器就会报错。<br>const有一个很好的应用场景，就是当我们引用第三方库的时声明的变量，用const来声明可以避免未来不小心重命名而导致出现bug：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const monent = require(&apos;moment&apos;)</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="class-extends-super"><a href="#class-extends-super" class="headerlink" title="class,extends,super"></a>class,extends,super</h3><p>ES6引入了<code>Class（类）</code>这个概念。新的class写法让对象原型的写法更加清晰、更像面向对象编程的语法，也更加通俗易懂。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        this.type = &apos;animal&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    says(say)&#123;</span><br><span class="line">        console.log(this.type + &apos; says &apos; + say)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let animal = new Animal()</span><br><span class="line">animal.says(&apos;hello&apos;) //animal says hello</span><br><span class="line"></span><br><span class="line">class Cat extends Animal &#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        super()</span><br><span class="line">        this.type = &apos;cat&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let cat = new Cat()</span><br><span class="line">cat.says(&apos;hello&apos;) //cat says hello</span><br></pre></td></tr></table></figure></p>
-<p>上面代码首先用class定义了一个“类”，可以看到里面有一个constructor方法，这就是构造方法，而this关键字则代表实例对象。简单地说，constructor内定义的方法和属性是实例对象自己的，而constructor外定义的方法和属性则是所有实例对象可以共享的。</p>
-<p><strong>Class之间可以通过<code>extends</code>关键字实现继承。</strong><br>上面定义了一个Cat类，该类通过extends关键字，继承了Animal类的所有属性和方法。</p>
-<hr>
-<p><code>super</code>关键字，它指代父类的实例（即父类的this对象）。<br>子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工。如果不调用super方法，子类就得不到this对象。</p>
-<p>ES6的继承机制，实质是先创造父类的实例对象this（所以必须先调用super方法），然后再用子类的构造函数修改this。</p>
-<hr>
-<h3 id="arrow-function"><a href="#arrow-function" class="headerlink" title="arrow function"></a>arrow function</h3><p><strong><code>arrow箭头函数</code></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function(i)&#123; return i + 1; &#125; //ES5</span><br><span class="line">(i) =&gt; i + 1 //ES6</span><br></pre></td></tr></table></figure></p>
-<p>如果方程比较复杂，则需要用<code>{}</code>把代码包起来：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//ES5</span><br><span class="line">function(x, y) &#123; </span><br><span class="line">    x++;</span><br><span class="line">    y--;</span><br><span class="line">    return x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//ES6</span><br><span class="line">(x, y) =&gt; &#123;x++; y--; return x+y&#125;</span><br></pre></td></tr></table></figure></p>
-<p>除了看上去更简洁以外，arrow function还有一项超级无敌的功能！<br>长期以来，JavaScript语言的this对象一直是一个令人头痛的问题，在对象方法中使用this，必须非常小心。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        this.type = &apos;animal&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    says(say)&#123;</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            console.log(this.type + &apos; says &apos; + say)</span><br><span class="line">        &#125;, 1000)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> var animal = new Animal()</span><br><span class="line"> animal.says(&apos;hi&apos;)  //undefined says hi</span><br></pre></td></tr></table></figure>
-<p> 运行上面的代码会报错，这是因为setTimeout中的this指向的是全局对象。所以为了让它能够正确的运行，传统的解决方法有两种：</p>
-<p>1.第一种是将this传给self,再用self来指代this<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">says(say)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(self.type + &apos; says &apos; + say)</span><br><span class="line">    &#125;, 1000)</span><br></pre></td></tr></table></figure></p>
-<p>2.第二种方法是用bind(this),即<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">says(say)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(this.type + &apos; says &apos; + say)</span><br><span class="line">    &#125;.bind(this), 1000)</span><br></pre></td></tr></table></figure></p>
-<p>但现在我们有了箭头函数，就不需要这么麻烦了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        this.type = &apos;animal&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    says(say)&#123;</span><br><span class="line">        setTimeout( () =&gt; &#123;</span><br><span class="line">            console.log(this.type + &apos; says &apos; + say)</span><br><span class="line">        &#125;, 1000)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> var animal = new Animal()</span><br><span class="line"> animal.says(&apos;hi&apos;)  //animal says hi</span><br></pre></td></tr></table></figure></p>
-<p>当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。<br>并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，它的this是继承外面的，因此内部的this就是外层代码块的this。</p>
-<hr>
-<h3 id="template-string"><a href="#template-string" class="headerlink" title="template string"></a>template string</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#result&quot;).append(</span><br><span class="line">  &quot;There are &lt;b&gt;&quot; + basket.count + &quot;&lt;/b&gt; &quot; +</span><br><span class="line">  &quot;items in your basket, &quot; +</span><br><span class="line">  &quot;&lt;em&gt;&quot; + basket.onSale +</span><br><span class="line">  &quot;&lt;/em&gt; are on sale!&quot;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>我们要用一堆的’+’号来连接文本与变量，而使用ES6的新特性模板字符串<code></code>后，我们可以直接这么来写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#result&quot;).append(`</span><br><span class="line">  There are &lt;b&gt;$&#123;basket.count&#125;&lt;/b&gt; items</span><br><span class="line">   in your basket, &lt;em&gt;$&#123;basket.onSale&#125;&lt;/em&gt;</span><br><span class="line">  are on sale!</span><br><span class="line">`);</span><br></pre></td></tr></table></figure></p>
-<p><strong>用反引号（`)来标识起始，用${}`来引用变量</strong>，而且所有的空格和缩进都会被保留在输出之中，是不是非常爽？！</p>
-<h3 id="Destructuring解构"><a href="#Destructuring解构" class="headerlink" title="Destructuring解构"></a>Destructuring解构</h3><p><strong>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（<code>Destructuring</code>）。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//ES5</span><br><span class="line">let cat = &apos;ken&apos;</span><br><span class="line">let dog = &apos;lili&apos;</span><br><span class="line">let zoo = &#123;cat: cat, dog: dog&#125;</span><br><span class="line">console.log(zoo)  //Object &#123;cat: &quot;ken&quot;, dog: &quot;lili&quot;&#125;</span><br><span class="line"></span><br><span class="line">//ES6</span><br><span class="line">let cat = &apos;ken&apos;</span><br><span class="line">let dog = &apos;lili&apos;</span><br><span class="line">let zoo = &#123;cat, dog&#125;</span><br><span class="line">console.log(zoo)  //Object &#123;cat: &quot;ken&quot;, dog: &quot;lili&quot;&#125;</span><br><span class="line"></span><br><span class="line">//反过来可以这么写：</span><br><span class="line">let dog = &#123;type: &apos;animal&apos;, many: 2&#125;</span><br><span class="line">let &#123; type, many&#125; = dog</span><br><span class="line">console.log(type, many)   //animal 2</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="Default-rest"><a href="#Default-rest" class="headerlink" title="Default,rest"></a>Default,rest</h3><p><strong><code>default</code>很简单，意思就是默认值。</strong><br>大家可以看下面的例子，调用animal()方法时忘了传参数，传统的做法就是加上这一句type = type || ‘cat’ 来指定默认值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function animal(type)&#123;</span><br><span class="line">    type = type || &apos;cat&apos;  </span><br><span class="line">    console.log(type)</span><br><span class="line">&#125;</span><br><span class="line">animal()</span><br></pre></td></tr></table></figure></p>
-<p>ES6可以这么写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function animal(type = &apos;cat&apos;)&#123;</span><br><span class="line">    console.log(type)</span><br><span class="line">&#125;</span><br><span class="line">animal()</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p><strong><code>rest参数</code></strong></p>
-<ul>
-<li>est参数（形式为“…变量名”） *</li>
-<li>用于获取函数多余参数，将多余参数放入数组中。 *<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function animals(...types)&#123;</span><br><span class="line">    console.log(types)</span><br><span class="line">&#125;</span><br><span class="line">animals(&apos;cat&apos;, &apos;dog&apos;, &apos;fish&apos;) //[&quot;cat&quot;, &quot;dog&quot;, &quot;fish&quot;]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="import-export"><a href="#import-export" class="headerlink" title="import  export"></a>import  export</h3><p><strong>ES6的module功能</strong><br>假设我们有两个js文件: index.js和content.js,现在我们想要在index.js中使用content.js返回的结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//index.js</span><br><span class="line">import animal from &apos;./content&apos;</span><br><span class="line"></span><br><span class="line">//content.js</span><br><span class="line">export default &apos;A cat&apos;</span><br></pre></td></tr></table></figure></p>
-<p><code>export</code>命令除了输出变量，还可以输出函数，甚至是类（react的模块基本都是输出类）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//index.js</span><br><span class="line"></span><br><span class="line">import &#123; say, type &#125; from &apos;./content&apos;  </span><br><span class="line">let says = say()</span><br><span class="line">console.log(`The $&#123;type&#125; says $&#123;says&#125;`)  //The dog says Hello</span><br><span class="line"></span><br><span class="line">//index.js</span><br><span class="line"></span><br><span class="line">import &#123; say, type &#125; from &apos;./content&apos;  </span><br><span class="line">let says = say()</span><br><span class="line">console.log(`The $&#123;type&#125; says $&#123;says&#125;`)  //The dog says Hello</span><br></pre></td></tr></table></figure></p>
-<p>这里输入的时候要注意：大括号里面的变量名，必须与被导入模块（content.js）对外接口的名称相同。</p>
-<hr>
-<h4 id="修改变量名"><a href="#修改变量名" class="headerlink" title="修改变量名"></a>修改变量名</h4><p>此时我们不喜欢type这个变量名，因为它有可能重名，所以我们需要修改一下它的变量名。在es6中可以用as实现一键换名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//index.js</span><br><span class="line"></span><br><span class="line">import animal, &#123; say, type as animalType &#125; from &apos;./content&apos;  </span><br><span class="line">let says = say()</span><br><span class="line">console.log(`The $&#123;animalType&#125; says $&#123;says&#125; to $&#123;animal&#125;`)  </span><br><span class="line">//The dog says Hello to A cat</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h4 id="模块的整体加载"><a href="#模块的整体加载" class="headerlink" title="模块的整体加载"></a>模块的整体加载</h4><p>除了指定加载某个输出值，还可以使用整体加载，即用星号（*）指定一个对象，所有输出值都加载在这个对象上面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//index.js</span><br><span class="line"></span><br><span class="line">import animal, * as content from &apos;./content&apos;  </span><br><span class="line">let says = content.say()</span><br><span class="line">console.log(`The $&#123;content.type&#125; says $&#123;says&#125; to $&#123;animal&#125;`)  </span><br><span class="line">//The dog says Hello to A cat</span><br></pre></td></tr></table></figure></p>
-<p>通常星号*结合as一起使用比较合适。</p>
-
-          
+<p>ECMAScript 6（以下简称ES6）是JavaScript语言的下一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。虽然目前并不是所有浏览器都能兼容ES6全部特性，但越来越多的程序员在实际项目当中已经开始使用ES6了。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/13/ES6的常用新特性/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1707,64 +1094,17 @@
 
       
         
-          
-            <p>Markdown是一种超轻量级的标记语言，常用的标记符号不超过十个，相对于更为复杂的HTML标记语言来讲，Markdown实在简便多了，因此学习成本也不是很大。</p>
-<h3 id="常用语法"><a href="#常用语法" class="headerlink" title="常用语法"></a>常用语法</h3><h4 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h4><p>在字体两侧分别加两个星号 ** ， 当然，也能使用快捷键 Ctrl + B 快速加粗；</p>
-<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><p>将需要设置为斜体的文字两端使用一个 * （或者 _ ） 夹起来，快捷键 Ctrl + I;</p>
-<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><p>在需要设置删除线的文字两侧加两个波浪线 ~~ 夹起来，可以表示删除文字；</p>
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><p>分割线的语法只需要三个星号*或者三个小短线 - 号，例如：</p>
-<hr>
-<h4 id="分级标题"><a href="#分级标题" class="headerlink" title="分级标题"></a>分级标题</h4><p>标题是每篇文章中最常用的格式，在Markdown语法中，如果某行文字被定义为标题，只需要在行首加上#符号即可：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># h 1</span><br><span class="line">## h 2</span><br><span class="line">### h 3</span><br><span class="line">#### h 4</span><br><span class="line">##### h 5</span><br><span class="line">###### h 6</span><br></pre></td></tr></table></figure></p>
-<p>显示：</p>
-<h1 id="h-1"><a href="#h-1" class="headerlink" title="h 1"></a>h 1</h1><h2 id="h-2"><a href="#h-2" class="headerlink" title="h 2"></a>h 2</h2><h3 id="h-3"><a href="#h-3" class="headerlink" title="h 3"></a>h 3</h3><h4 id="h-4"><a href="#h-4" class="headerlink" title="h 4"></a>h 4</h4><h5 id="h-5"><a href="#h-5" class="headerlink" title="h 5"></a>h 5</h5><h6 id="h-6"><a href="#h-6" class="headerlink" title="h 6"></a>h 6</h6><p>是几级标题就用几个 # 符号，每增加一个 # 表示更深入一个层次的内容，总共有六级标题。</p>
-<h4 id="外链接"><a href="#外链接" class="headerlink" title="外链接"></a>外链接</h4><p>[描述](链接地址) 为文字添加外链接，可以使用快捷键 Ctrl + L 快速设置；<br>示例： <code>[FiveSeven的博客](https://fivesevenyu.github.io)</code><br>显示： 这里是<a href="https://fivesevenyu.github.io" target="_blank" rel="noopener">FiveSeven的博客</a> 链接。</p>
-<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><p>插入图片的语法与插入链接很像，区别在一个插入图片的时候需要加一个!号<br>![描述](图片链接地址)<br>代码：<br><code>![logo](markdown常用语法/2x.png)</code><br>显示：<br><img src="http://ovwz88un8.bkt.clouddn.com/2x.png" alt="logo"></p>
-<h4 id="内嵌代码"><a href="#内嵌代码" class="headerlink" title="内嵌代码"></a>内嵌代码</h4><p>第一种:引入单行代码出现一个代码框，需要使用键盘左上角的ESC键下面的反单引号夹在文字两侧，两侧各一个就行。<br>例如：`Hello world！ `</p>
-<p>显示：<br><code>Hellow world！</code><br>第二种：多行代码的引入需要在代码段的前后分别使用三个反单引号<br>显示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello world!</span><br></pre></td></tr></table></figure></p>
-<h4 id="引入内容"><a href="#引入内容" class="headerlink" title="引入内容"></a>引入内容</h4><p>第一种:通过在文字开头添加“&gt;”表示块注释。<br>例如：<br>>如果你无法简洁的表达你的想法，那只说明你还不够了解它。 – 阿尔伯特·爱因斯坦<br>显示：</p>
-<blockquote>
-<p>如果你无法简洁的表达你的想法，那只说明你还不够了解它。 – 阿尔伯特·爱因斯坦</p>
-</blockquote>
-<h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><p>使用一个 *，+或- 表示无序列表。<br>示例：</p>
-<ul>
-<li>无序列表项 一</li>
-<li>无序列表项 二</li>
-<li>无序列表项 三</li>
-</ul>
-<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><p>使用数字和英文句点表示有序列表, 不要求数字一定要连续。<br>示例：<br>1.有序列表项 一<br>2.有序列表项 二<br>3.有序列表项 三</p>
-<h4 id="绘制表格"><a href="#绘制表格" class="headerlink" title="绘制表格"></a>绘制表格</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| Tables        | Are           | Cool  |</span><br><span class="line">| ------------- |:-------------:| -----:|</span><br><span class="line">| col 3 is      | right-aligned | $1600 |</span><br><span class="line">| col 2 is      | centered      |   $12 |</span><br><span class="line">| zebra stripes | are neat      |    $1 |</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td style="text-align:center">right-aligned</td>
-<td style="text-align:right">$1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">$12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">$1</td>
-</tr>
-</tbody>
-</table>
-<h4 id="反斜杠"><a href="#反斜杠" class="headerlink" title="反斜杠"></a>反斜杠</h4><p>Markdown 支持在以下这些符号前面加上反斜杠来帮助插入普通的符号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">\   反斜线</span><br><span class="line">`   反引号</span><br><span class="line">*   星号</span><br><span class="line">_   底线</span><br><span class="line">&#123;&#125;  花括号</span><br><span class="line">[]  方括号</span><br><span class="line">()  括弧</span><br><span class="line">#   井字号</span><br><span class="line">+   加号</span><br><span class="line">-   减号</span><br><span class="line">.   英文句点</span><br><span class="line">!   惊叹号</span><br></pre></td></tr></table></figure></p>
-
-          
+          <p>Markdown是一种超轻量级的标记语言，常用的标记符号不超过十个，相对于更为复杂的HTML标记语言来讲，Markdown实在简便多了，因此学习成本也不是很大。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/03/markdown常用语法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1878,67 +1218,17 @@
 
       
         
-          
-            <h4 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h4><p>到<a href="https://git-scm.com" target="_blank" rel="noopener">Git</a>官网下载相应版本,安装即可。</p>
-<h4 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h4><p>到<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>官网下载相应版本，安装即可。</p>
-<h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><p>打开终端，输入<br><code>npm install -g hexo-cli</code><br>(npm是Node自带的包管理工具)</p>
-<h4 id="创建hexo文件夹"><a href="#创建hexo文件夹" class="headerlink" title="创建hexo文件夹"></a>创建hexo文件夹</h4><p>在想要创建hexo的地方新建hexo文件夹，执行命令：<br><code>cd hexo</code><br><code>hexo init</code><br>hexo会自动在你的hexo文件夹下创建搭建网站需要的所有文件，再执行以下命令安装所需的依赖包：<br><code>npm install</code></p>
-<h4 id="本地运行"><a href="#本地运行" class="headerlink" title="本地运行"></a>本地运行</h4><p>目前为止已经搭建好本地的hexo博客了，在终端中执行如下命令：<br><code>hexo generate （或者hexo g）</code>     生成静态文件<br><code>hexo server （或者hexo s）</code>       部署到Git<br>然后打开浏览器，在地址栏输入localhost:4000，就可以看到我们搭建好的本地博客了。到此只是搭建好了本地博客，还需要将博客部署到github上，显然，需要注册一个github账号。</p>
-<h4 id="注册Github账号"><a href="#注册Github账号" class="headerlink" title="注册Github账号"></a>注册Github账号</h4><p>进入<a href="https://github.com" target="_blank" rel="noopener">github官网</a>注册就好了，记住不要忘了验证邮件。</p>
-<h4 id="新建repository"><a href="#新建repository" class="headerlink" title="新建repository"></a>新建repository</h4><p>新建一个repository，名字是yourgithubname.github.io</p>
-<h4 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h4><p>进入你的hexo文件夹根目录下，用编辑器打开_config.yml，修改deploy项，如下（根据你的github进行相应更改）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|  deploy:</span><br><span class="line">|       type:  git</span><br><span class="line">|       repo:  https://github.com/yougithubname/yougithubname.github.io.git</span><br><span class="line">|       branch:  master</span><br></pre></td></tr></table></figure></p>
-<p>然后执行以下命令：<br><code>hexo generate （或者hexo g）</code><br><code>hexo deploy （或者hexo d）</code><br>如果执行 hexo deploy 后报错“ERROR Deployer not found: Git”<br><code>npm install hexo-deployer-git -save</code><br>重新执行生成部署后，用浏览器访问FiveSevenYu.github.io即可。<br>每次修改完本地的文件后要执行以下命令，重新部署到github上：<br><code>hexo clean</code><br><code>hexo generate （或者hexo g）</code><br><code>hexo deploy （或者hexo d）</code><br>注意：如果是第一次使用github，则需要设置ssh,可以参考<a href="https://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&amp;mid=2650661821&amp;idx=1&amp;sn=c6116ed82bff2d083bb152fbd8cbc38d&amp;scene=1&amp;srcid=0621l9okMDolnRp9zG9xHx9E#wechat_redirect" target="_blank" rel="noopener">教程</a>。</p>
-<h4 id="整站配置"><a href="#整站配置" class="headerlink" title="整站配置"></a>整站配置</h4><p>hexo根目录下的_config.yml（D:\hexo_config.yml）中是对整个站点的基本配置。除了之前配置的deploy项和默认的以外，还需配置了以下项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|   # Site</span><br><span class="line">|   title: FiveSeven’s blog</span><br><span class="line">|   subtitle: 脚踏实地，仰望星空</span><br><span class="line">|   description: 前端博客</span><br><span class="line">|   author: FiveSeven</span><br><span class="line">|   language: zh-CN</span><br></pre></td></tr></table></figure></p>
-<p>分别是站点名，站点副标题，对站点的描述，作者名字，语言。<br>当然主题也可以做相应的配置，这里先不细说。</p>
-<h4 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h4><p>首先在终端中输入：<br><code>hexo new “your article name”</code><br>然后打开这个文件（在D:\hexo\source_posts下），就可以编辑你的博客了。<br>首先要配置开头：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|   —</span><br><span class="line">|   title: your article name</span><br><span class="line">|   date: 2016-08-10 19:51:02</span><br><span class="line">|   categories: blog</span><br><span class="line">|   tags: [博客，前端]</span><br><span class="line">|   —</span><br></pre></td></tr></table></figure></p>
-<p>其中，catogories之后引入文章分类会用到，tags之后引入标签会用到。在开头后面就可以接着写我们博客的内容了，博客内容是用<a href="http://www.appinn.com/markdown/" target="_blank" rel="noopener">markdown</a>写的。网上也有很多<a href="http://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="noopener">入门指南</a><br>然后，将博客部署到github上，就能看见我们写的博客啦。</p>
-<h4 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h4><p>进入hexo官方<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a>网站挑选自己喜欢的主题<br>点击主题名，进入作者的GitHub，参考作者给的文档（README.md）进行安装</p>
-<h4 id="Hexo命令："><a href="#Hexo命令：" class="headerlink" title="Hexo命令："></a>Hexo命令：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot;     #新建文章 </span><br><span class="line">hexo new page &quot;pageName&quot;    #新建页面</span><br><span class="line">hexo generate   #生成静态页面至public目录</span><br><span class="line">hexo server     #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server） </span><br><span class="line">hexo deploy     #将.deploy目录部署到GitHub</span><br><span class="line">hexo help   #查看帮助</span><br><span class="line">hexo version   #查看Hexo的版本</span><br><span class="line">hexo deploy -g  #生成加部署</span><br><span class="line">hexo server -g  #生成加预览</span><br></pre></td></tr></table></figure>
-<p>命令的简写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure></p>
-<h4 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h4><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官网</a></p>
-<h4 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h4><p>以下是我自己搭建博客时候遇到的一些问题<br>①如何自定义页面,让hexo不渲染该文件?<br>在_config.yml文件中找到<code>skip_render</code>添加参数;<br>skip_render一般有以下四种常用参数：<br>1.跳过source目录下的 test.html: skip_render: test.html<br>2.跳过source目录下 test 文件夹内所有文件：skip_render: test/*<br>3.跳过source目录下 test 文件夹内所有文件包括子文件夹以及子文件夹内的文件：skip_render: test/**<br>4.跳过多个路径:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">skip_render:</span><br><span class="line"> - test.html</span><br><span class="line"> - test/*</span><br></pre></td></tr></table></figure></p>
-<p>②如何在一篇博客中引用自带的图片<br>在_config.yml文件中找到<code>post_asset_folder</code>参数修改为true<br><code>post_asset_folder: true</code><br>这样下次新建博客就会生成一个和博客名一样的文件夹,比如<br><code>hexo new &quot;now&quot;</code><br>新建后会产生now.md和名为now的文件夹,可以将引用的图片文件存放在这个文件夹下面。</p>
-<h4 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h4><p>1.域名注册<br>首先你需要有一个域名，可以上<a href="https://wanwang.aliyun.com/?utm_medium=text&amp;utm_source=baidu&amp;utm_campaign=ymsj&amp;utm_content=se_4098" target="_blank" rel="noopener">阿里云</a>、万网等网站注册 ，购买后需要实名认证，审核时间为5到7天不等。（下面以阿里云为例）<br>2.域名绑定<br>实名认证通过了就可以绑定了，首先你需要在hexo博客下面的source目录下添加一个CNAME（一定要大写，没有后缀名）文件，然后打开在第一行写上你注册到的域名，比如</p>
-<blockquote>
-<p>example.net</p>
-</blockquote>
-<p>然后保存，在终端中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure></p>
-<p>可以顺便查下你的GitHub的IP地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping youname.github.io</span><br></pre></td></tr></table></figure></p>
-<p>现在你可以在<a href="https://dc.aliyun.com/tcparse/dns.htm?init=false&amp;dtoken=ExcCE69cvxqs03n_Vkk" target="_blank" rel="noopener">域名控制台</a>中<strong>添加DNS解析</strong>了,添加2条记录</p>
-<table>
-<thead>
-<tr>
-<th>记录类型</th>
-<th style="text-align:center">主机记录</th>
-<th style="text-align:center">解析线路</th>
-<th style="text-align:center">记录值</th>
-<th style="text-align:right">TTL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A</td>
-<td style="text-align:center">@</td>
-<td style="text-align:center">默认</td>
-<td style="text-align:center">151.101.9.147</td>
-<td style="text-align:right">10分钟</td>
-</tr>
-<tr>
-<td>CNAME</td>
-<td style="text-align:center">www</td>
-<td style="text-align:center">默认</td>
-<td style="text-align:center">youname.github.io</td>
-<td style="text-align:right">10分钟</td>
-</tr>
-</tbody>
-</table>
-<p>注意：用你自己的GitHub用户名替换上面的youname<br>然后等上10分钟等待服务器DNS缓存更新，你就能正确用域名访问到你的网站啦~</p>
-<p>O__O “…如果你遇到了一点小小的问题，不要灰心，可以检查下步骤或者打电话骚扰下客服小姐姐“95187”</p>
-
-          
+          <p>什么是 Hexo？  Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/02/GitHub+hexo搭建博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -2141,7 +1431,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共19k字</span>
+  <span class="post-count">博客全站共19.4k字</span>
 </div>
         
 

@@ -101,21 +101,21 @@
 
 
 
-<meta name="description" content="转载自 掘金：大表妹吖（写给新人的React快速入门手册） 基础组件React组件分为三种写法： 1.ES6的class语法，继承React.Component类实现带有完整生命周期的组件12345678910import React, &amp;#123; Component &amp;#125; from &amp;apos;react&amp;apos;;export default class exComponent e">
+<meta name="description" content="React是Facrbook内部的一个JavaScript类库，已于1年开源，可用于创建Web用户交互界面。它引入了一种新的方式来处理浏览器DOM。你只需要声明地定义各个时间点的用户界面，而无序关系在数据变化时，需要更新哪一部分DOM。在任何时间点，React都能以最小的DOM修改来更新整个应用程序。">
 <meta name="keywords" content="前端,React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React学习笔记">
 <meta property="og:url" content="http://yoursite.com/2017/12/04/React学习笔记/index.html">
 <meta property="og:site_name" content="FiveSeveN">
-<meta property="og:description" content="转载自 掘金：大表妹吖（写给新人的React快速入门手册） 基础组件React组件分为三种写法： 1.ES6的class语法，继承React.Component类实现带有完整生命周期的组件12345678910import React, &amp;#123; Component &amp;#125; from &amp;apos;react&amp;apos;;export default class exComponent e">
+<meta property="og:description" content="React是Facrbook内部的一个JavaScript类库，已于1年开源，可用于创建Web用户交互界面。它引入了一种新的方式来处理浏览器DOM。你只需要声明地定义各个时间点的用户界面，而无序关系在数据变化时，需要更新哪一部分DOM。在任何时间点，React都能以最小的DOM修改来更新整个应用程序。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ovwz88un8.bkt.clouddn.com/componentLifeCycle%20.png">
 <meta property="og:image" content="http://ovwz88un8.bkt.clouddn.com/16033f158c902f64.png">
 <meta property="og:image" content="http://ovwz88un8.bkt.clouddn.com/16033fb8ab81d148.png">
-<meta property="og:updated_time" content="2019-04-27T13:38:06.437Z">
+<meta property="og:updated_time" content="2019-05-07T14:15:48.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React学习笔记">
-<meta name="twitter:description" content="转载自 掘金：大表妹吖（写给新人的React快速入门手册） 基础组件React组件分为三种写法： 1.ES6的class语法，继承React.Component类实现带有完整生命周期的组件12345678910import React, &amp;#123; Component &amp;#125; from &amp;apos;react&amp;apos;;export default class exComponent e">
+<meta name="twitter:description" content="React是Facrbook内部的一个JavaScript类库，已于1年开源，可用于创建Web用户交互界面。它引入了一种新的方式来处理浏览器DOM。你只需要声明地定义各个时间点的用户界面，而无序关系在数据变化时，需要更新哪一部分DOM。在任何时间点，React都能以最小的DOM修改来更新整个应用程序。">
 <meta name="twitter:image" content="http://ovwz88un8.bkt.clouddn.com/componentLifeCycle%20.png">
 
 
@@ -341,7 +341,7 @@
       
 
       
-        <p>转载自 <a href="https://juejin.im/post/5a29f794f265da4310484a1b" target="_blank" rel="noopener">掘金：大表妹吖（写给新人的React快速入门手册）</a></p>
+        <p> React是Facrbook内部的一个JavaScript类库，已于1年开源，可用于创建Web用户交互界面。它引入了一种新的方式来处理浏览器DOM。你只需要声明地定义各个时间点的用户界面，而无序关系在数据变化时，需要更新哪一部分DOM。在任何时间点，React都能以最小的DOM修改来更新整个应用程序。<br><a id="more"></a><br>转载自 <a href="https://juejin.im/post/5a29f794f265da4310484a1b" target="_blank" rel="noopener">掘金：大表妹吖（写给新人的React快速入门手册）</a></p>
 <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>React组件分为三种写法：</p>
 <p><strong>1.ES6的class语法，继承React.Component类实现带有完整生命周期的组件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">export default class exComponent extends Component &#123;</span><br><span class="line">  /*</span><br><span class="line">    包含一些生命周期函数、内部函数以及变量等</span><br><span class="line">  */</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (&lt;div&gt;&#123;/**/&#125;&lt;/div&gt;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>2.无状态组件（函数式组件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const exComponent = (props) =&gt; (</span><br><span class="line">  &lt;div&gt;&#123;props.value&#125;&lt;/div&gt;</span><br><span class="line">);</span><br><span class="line">export default exComponent;</span><br></pre></td></tr></table></figure></p>
@@ -746,7 +746,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共19k字</span>
+  <span class="post-count">博客全站共19.4k字</span>
 </div>
         
 
